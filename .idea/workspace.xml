@@ -4,11 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Эхо бот по статье Хабра">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/misc.py" afterDir="false" />
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Добавил кнопочки">
+      <change afterPath="$PROJECT_DIR$/keyBoards.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -107,13 +104,22 @@
       <option name="project" value="LOCAL" />
       <updated>1707399596705</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Добавил кнопочки">
+      <option name="closed" value="true" />
+      <created>1707407772996</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1707407772996</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Работающий пример Эхо бота" />
     <MESSAGE value="Эхо бот по статье Хабра" />
-    <option name="LAST_COMMIT_MESSAGE" value="Эхо бот по статье Хабра" />
+    <MESSAGE value="Добавил кнопочки" />
+    <option name="LAST_COMMIT_MESSAGE" value="Добавил кнопочки" />
   </component>
 </project>

@@ -27,7 +27,7 @@ async def menu(message: Message):
     await message.answer('Привет, вот меню', reply_markup=keyBoards.mainMenu)
 
 
-# Пиздеть на всех
-# @router.message()
-# async def message_handler(message: Message):
-#     await message.reply(f"Твой ID: {message.from_user.id}")
+# Отвечать openAI
+@router.message()
+async def message_handler(message: Message):
+    await message.reply(f"Твой ID: {message.from_user.id}")
