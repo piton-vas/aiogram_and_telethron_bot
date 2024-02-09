@@ -82,7 +82,9 @@ def new_try_counter(user_id, connection):
 def chenge_user_status_to_free(user_id, connection):
     cursor = connection.cursor()
     sql = f"""UPDATE users 
-            SET status = 'free'           
+            SET status = 'free', 
+            count_request = 1,
+            subscribe_until='{datetime.now().date()}'        
             WHERE user_id='{user_id}'"""
     try:
         cursor.execute(sql)
@@ -107,7 +109,7 @@ def can_user_make_openAI_request(user_id):
             logging.info("User_id:" + str(user_id) + " payed trying")
             return True
         else:                                        # Подписка закончилась, но еще можно бесплатно
-            logging.info("User_id:" + str(user_id) + " trying, but subscribe finishing")
+            logging.info("User_id:" + str(user_id) + " trying, but subscribe finishing. Free try #1")
             chenge_user_status_to_free(user_id, connection)
             return True
     elif status=='free':
