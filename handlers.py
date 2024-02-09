@@ -1,6 +1,7 @@
 from aiogram import types, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
+from database import add_new_user
 
 import keyBoards
 from keyBoards import mainMenu
@@ -12,6 +13,8 @@ router = Router()
 @router.message(Command("start"))
 async def start_handler(message: Message):
     await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=keyBoards.mainMenu)
+    add_new_user(message.from_user.id, message.from_user.full_name)
+
 
 
 @router.message(Command("neuroZakupki_bot", prefix="@"))
