@@ -1,4 +1,5 @@
 import logging
+logging.basicConfig(level=logging.INFO)  # Отключить после дебага
 
 import mysql.connector
 from mysql.connector import Error
@@ -6,6 +7,8 @@ import env.config
 
 from datetime import datetime, date
 from dateutil.relativedelta import relativedelta
+
+
 
 
 
@@ -51,21 +54,88 @@ def check_user_status(user_id, user_name=''):
 # myresult1 = check_user_status(243697626, 'Василий')
 # print(myresult1)
 
+def new_free_day(user_id, connection):
+    cursor = connection.cursor()
+    sql = f"""UPDATE users 
+            SET subscribe_until='{datetime.now().date()}',
+                count_request=1             
+            WHERE user_id='{user_id}'"""
+    try:
+        cursor.execute(sql)
+        connection.commit()
+    except:
+        logging.error('DB append failed!')
+        connection.rollback()
+
+def new_try_counter(user_id, connection):
+    cursor = connection.cursor()
+    sql = f"""UPDATE users 
+            SET count_request = count_request + 1             
+            WHERE user_id='{user_id}'"""
+    try:
+        cursor.execute(sql)
+        connection.commit()
+    except:
+        logging.error('DB append failed!')
+        connection.rollback()
+
+def chenge_user_status_to_free(user_id, connection):
+    cursor = connection.cursor()
+    sql = f"""UPDATE users 
+            SET status = 'free'           
+            WHERE user_id='{user_id}'"""
+    try:
+        cursor.execute(sql)
+        connection.commit()
+    except:
+        logging.error('DB append failed!')
+        connection.rollback()
+
 def can_user_make_openAI_request(user_id):
     connection = mydbConnection()
     cursor = connection.cursor()
-    sql = f"SELECT user_id, status from users WHERE user_id='{user_id}'"
+    sql = f"SELECT user_id, status, subscribe_until, count_request from users WHERE user_id='{user_id}'"
     cursor.execute(sql)
-    # Дописать нужно
+    myresult = cursor.fetchall()[0]
+    status = myresult[1]
+    subscribe_until = myresult[2]
+    count_request = myresult[3]
+    if status=='admin':
+        return True
+    elif status=='paid':
+        if subscribe_until >= datetime.now().date(): # Если подписка не закончилась
+            logging.info("User_id:" + str(user_id) + " payed trying")
+            return True
+        else:                                        # Подписка закончилась, но еще можно бесплатно
+            logging.info("User_id:" + str(user_id) + " trying, but subscribe finishing")
+            chenge_user_status_to_free(user_id, connection)
+            return True
+    elif status=='free':
+        if subscribe_until < datetime.now().date():  # Если сегодня не было попыток, снова бесплатные запросы
+            new_free_day(user_id, connection)
+            logging.info("User_id:" + str(user_id) + " obnulil his free days, Free try#1")
+            return True
+        else:                                        # Попытки сегодня были уже. Сча будем считать их
+            if count_request < env.config.count_request_maximum_free: # Бесплатных попыток хватает,
+                new_try_counter(user_id, connection)
+                logging.info("User_id:" + str(user_id) + ". Free try#" + str(count_request+1))
+                return True
+            else:                                     # Бесплатные попытки закончились
+                logging.info("User_id:" + str(user_id) + " free try finished")
+                return False
 
-# can_user_make_openAI_request(243697626)
+
+    # print(myresult)
+
+print(can_user_make_openAI_request(123))
+
 
 def make_one_month_subscribe(user_id):
     connection = mydbConnection()
     cursor = connection.cursor()
 
     one_month_later = datetime.now() + relativedelta(months=+1)
-    str_one_month_later = one_month_later.strftime("%Y-%m-%d %H:%M:%S")
+    str_one_month_later = one_month_later.strftime("%Y-%m-%d")
 
     sql = f"UPDATE users SET status = 'paid', subscribe_until='{str_one_month_later}' WHERE user_id='{user_id}'"
 
