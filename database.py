@@ -1,5 +1,5 @@
 import logging
-logging.basicConfig(level=logging.INFO)  # Отключить после дебага
+# logging.basicConfig(level=logging.INFO)  # Отключить после дебага
 
 import mysql.connector
 from mysql.connector import Error
@@ -36,8 +36,8 @@ def add_new_user(user_id, user_name):
     if cursor.fetchall():  # checking if something found with this username
         logging.info('User_id:' + str(user_id) + ' already exists. His user_name is:' + user_name)
     else:
-        sql = "INSERT INTO users (user_id, user_name) VALUES (%s, %s)"
-        val = (user_id, user_name)
+        sql = "INSERT INTO users (user_id, user_name, subscribe_until, count_request) VALUES (%s, %s, %s, %s)"
+        val = (user_id, user_name, datetime.now().date(), 0)
         cursor.execute(sql, val)
         connection.commit()
         logging.info('New user has been registred, iser_id:' + str(user_id) + ' User_name:' + user_name)
@@ -79,7 +79,7 @@ def new_try_counter(user_id, connection):
         logging.error('DB append failed!')
         connection.rollback()
 
-def chenge_user_status_to_free(user_id, connection):
+def change_user_status_to_free(user_id, connection):
     cursor = connection.cursor()
     sql = f"""UPDATE users 
             SET status = 'free', 
@@ -90,7 +90,7 @@ def chenge_user_status_to_free(user_id, connection):
         cursor.execute(sql)
         connection.commit()
     except:
-        logging.error('DB append failed!')
+        logging.error('DB append failed! change_user_status_to_free ')
         connection.rollback()
 
 def can_user_make_openAI_request(user_id):
@@ -110,7 +110,7 @@ def can_user_make_openAI_request(user_id):
             return True
         else:                                        # Подписка закончилась, но еще можно бесплатно
             logging.info("User_id:" + str(user_id) + " trying, but subscribe finishing. Free try #1")
-            chenge_user_status_to_free(user_id, connection)
+            change_user_status_to_free(user_id, connection)
             return True
     elif status=='free':
         if subscribe_until < datetime.now().date():  # Если сегодня не было попыток, снова бесплатные запросы
@@ -129,7 +129,7 @@ def can_user_make_openAI_request(user_id):
 
     # print(myresult)
 
-print(can_user_make_openAI_request(123))
+# print(can_user_make_openAI_request(123))
 
 
 def make_one_month_subscribe(user_id):
@@ -143,10 +143,25 @@ def make_one_month_subscribe(user_id):
 
     try:
         cursor.execute(sql)
-        logging.info("One month subscribe, iser_id:" + str(user_id))
+        logging.info("One month subscribe, user_id:" + str(user_id))
         connection.commit()
     except:
-        logging.error('DB append failed!')
+        logging.error('DB append failed! make_one_month_subscribe')
         connection.rollback()
 
 # make_one_month_subscribe(123)
+
+def add_thread_id_to_user(user_id, thread_id):
+    connection = mydbConnection()
+    cursor = connection.cursor()
+
+    sql = f"UPDATE users SET thread_id='{thread_id}' WHERE user_id='{user_id}'"
+
+    try:
+        cursor.execute(sql)
+        logging.info("make thread for user_id:" + str(user_id))
+        connection.commit()
+    except:
+        logging.error('DB append failed! add_thread_id_to_user \n' + sql)
+        connection.rollback()
+

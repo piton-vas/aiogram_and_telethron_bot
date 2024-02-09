@@ -1,10 +1,12 @@
 from aiogram import types, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
+
+import database
 from database import add_new_user
 
 import keyBoards
-from keyBoards import mainMenu
+# from keyBoards import mainMenu
 
 
 router = Router()
@@ -29,8 +31,11 @@ async def cmd_profile(message: types.Message):
 async def menu(message: Message):
     await message.answer('Привет, вот меню', reply_markup=keyBoards.mainMenu)
 
-
 # Отвечать openAI
 @router.message()
 async def message_handler(message: Message):
-    await message.reply(f"Твой ID: {message.from_user.id}")
+    if database.can_user_make_openAI_request(message.from_user.id):
+        await message.reply(f"Твой ID: {message.from_user.id}", reply_markup=keyBoards.openAIpoll)
+    else:
+        await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
+                             reply_markup=keyBoards.mainMenu)
