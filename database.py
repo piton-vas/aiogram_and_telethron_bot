@@ -4,6 +4,10 @@ import mysql.connector
 from mysql.connector import Error
 import env.config
 
+from datetime import datetime, date
+from dateutil.relativedelta import relativedelta
+
+
 
 def mydbConnection():
     connection = None
@@ -41,14 +45,36 @@ def check_user_status(user_id, user_name=''):
     cursor = connection.cursor()
     cursor.execute(f"SELECT user_id, status from users WHERE user_id='{user_id}'")
     myresult = cursor.fetchall()
-    # print(myresult)
     return myresult[0][1]
 
 
-    # if myresult=cursor.fetchall():  # checking if something found with this username
-    #     logging.info('User_id:' + str(user_id) + ' already exists. His user_name is:' + user_name)
-    # else:
-    #     logging.error('Error while shecking status, iser_id:' + str(user_id) + ' User_name:' + user_name)
+# myresult1 = check_user_status(243697626, 'Василий')
+# print(myresult1)
 
-myresult1 = check_user_status(243697626, 'Василий')
-print(myresult1)
+def can_user_make_openAI_request(user_id):
+    connection = mydbConnection()
+    cursor = connection.cursor()
+    sql = f"SELECT user_id, status from users WHERE user_id='{user_id}'"
+    cursor.execute(sql)
+    # Дописать нужно
+
+# can_user_make_openAI_request(243697626)
+
+def make_one_month_subscribe(user_id):
+    connection = mydbConnection()
+    cursor = connection.cursor()
+
+    one_month_later = datetime.now() + relativedelta(months=+1)
+    str_one_month_later = one_month_later.strftime("%Y-%m-%d %H:%M:%S")
+
+    sql = f"UPDATE users SET status = 'paid', subscribe_until='{str_one_month_later}' WHERE user_id='{user_id}'"
+
+    try:
+        cursor.execute(sql)
+        logging.info("One month subscribe, iser_id:" + str(user_id))
+        connection.commit()
+    except:
+        logging.error('DB append failed!')
+        connection.rollback()
+
+# make_one_month_subscribe(123)
