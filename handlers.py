@@ -4,6 +4,7 @@ from aiogram.filters import Command
 
 import database
 from database import add_new_user
+from neuroThings import add_user_messege_and_run
 
 import keyBoards
 # from keyBoards import mainMenu
@@ -34,8 +35,12 @@ async def menu(message: Message):
 # Отвечать openAI
 @router.message()
 async def message_handler(message: Message):
-    if database.can_user_make_openAI_request(message.from_user.id):
-        await message.reply(f"Твой ID: {message.from_user.id}", reply_markup=keyBoards.openAIpoll)
+    user_id = message.from_user.id
+    thread_id = database.can_user_make_openAI_request(user_id)[1]
+    if thread_id: # Убедились, что доступ есть.
+        print(thread_id, message.text)
+        responce_from_openAI = add_user_messege_and_run(thread_id, message.text)
+        await message.reply(f"Ответ ОпенАИ: {responce_from_openAI}", reply_markup=keyBoards.openAIpoll)
     else:
         await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
                              reply_markup=keyBoards.mainMenu)

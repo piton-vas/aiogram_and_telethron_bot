@@ -3,3 +3,4 @@ logging==0.4.9.6
 openai==1.11.1
 mysql-connector-python==8.3.0
 relativedelta==0.6.12
+asyncio==3.4.3

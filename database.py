@@ -96,32 +96,34 @@ def change_user_status_to_free(user_id, connection):
 def can_user_make_openAI_request(user_id):
     connection = mydbConnection()
     cursor = connection.cursor()
-    sql = f"SELECT user_id, status, subscribe_until, count_request from users WHERE user_id='{user_id}'"
+    sql = f"SELECT user_id, status, subscribe_until, count_request, thread_id from users WHERE user_id='{user_id}'"
     cursor.execute(sql)
     myresult = cursor.fetchall()[0]
     status = myresult[1]
     subscribe_until = myresult[2]
     count_request = myresult[3]
+    thread_id = myresult[4]
+
     if status=='admin':
         return True
     elif status=='paid':
         if subscribe_until >= datetime.now().date(): # Если подписка не закончилась
             logging.info("User_id:" + str(user_id) + " payed trying")
-            return True
+            return True, thread_id
         else:                                        # Подписка закончилась, но еще можно бесплатно
             logging.info("User_id:" + str(user_id) + " trying, but subscribe finishing. Free try #1")
             change_user_status_to_free(user_id, connection)
-            return True
+            return True, thread_id
     elif status=='free':
         if subscribe_until < datetime.now().date():  # Если сегодня не было попыток, снова бесплатные запросы
             new_free_day(user_id, connection)
             logging.info("User_id:" + str(user_id) + " obnulil his free days, Free try#1")
-            return True
+            return True, thread_id
         else:                                        # Попытки сегодня были уже. Сча будем считать их
             if count_request < env.config.count_request_maximum_free: # Бесплатных попыток хватает,
                 new_try_counter(user_id, connection)
                 logging.info("User_id:" + str(user_id) + ". Free try#" + str(count_request+1))
-                return True
+                return True, thread_id
             else:                                     # Бесплатные попытки закончились
                 logging.info("User_id:" + str(user_id) + " free try finished")
                 return False
