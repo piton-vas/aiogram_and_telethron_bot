@@ -4,9 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="funсtion create_new_tread">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Появился нейронный ответ">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuroThings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/keyBoards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyBoards.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requierments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requierments.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -40,19 +42,20 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Python.config.executor": "Run",
     "Python.database.executor": "Run",
+    "Python.handlers.executor": "Run",
     "Python.main.executor": "Run",
     "Python.neuroThings.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/env",
     "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
@@ -188,7 +191,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707501861222</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="Появился нейронный ответ">
+      <option name="closed" value="true" />
+      <created>1707509080831</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1707509080831</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,7 +224,8 @@
     <MESSAGE value="funktion can_user_make_openAI_request" />
     <MESSAGE value="funсtion can_user_make_openAI_request" />
     <MESSAGE value="funсtion create_new_tread" />
-    <option name="LAST_COMMIT_MESSAGE" value="funсtion create_new_tread" />
+    <MESSAGE value="Появился нейронный ответ" />
+    <option name="LAST_COMMIT_MESSAGE" value="Появился нейронный ответ" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -222,6 +234,11 @@
           <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python312/Lib/_pydatetime.py</url>
           <line>1839</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/handlers.py</url>
+          <line>42</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

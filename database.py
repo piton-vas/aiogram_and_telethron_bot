@@ -17,7 +17,7 @@ def mydbConnection():
     try:
         connection = mysql.connector.connect(
             host=env.config.db_host,
-            user=env.config.db_name,
+            user=env.config.db_username,
             passwd=env.config.db_pass,
             database=env.config.db_name
         )
@@ -164,6 +164,72 @@ def add_thread_id_to_user(user_id, thread_id):
         logging.info("make thread for user_id:" + str(user_id))
         connection.commit()
     except:
-        logging.error('DB append failed! add_thread_id_to_user \n' + sql)
+        logging.error('DB append failed! add_thread_id_to_user ' )
         connection.rollback()
 
+
+def createDB():
+    connection = mydbConnection()
+    cursor = connection.cursor()
+    sql = """
+    -- phpMyAdmin SQL Dump
+-- version 5.2.1
+-- https://www.phpmyadmin.net/
+--
+-- Host: localhost
+-- Generation Time: Feb 09, 2024 at 11:41 PM
+-- Server version: 5.7.35-38
+-- PHP Version: 7.4.33
+
+SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
+SET time_zone = "+00:00";
+
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8mb4 */;
+
+--
+-- Database: `piton_neurozakup`
+--
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `user_id` int(11) NOT NULL,
+  `user_name` varchar(100) NOT NULL,
+  `registration_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+  `status` enum('free','paid','admin','') NOT NULL DEFAULT 'free',
+  `subscribe_until` date DEFAULT NULL,
+  `count_request` int(11) DEFAULT NULL,
+  `thread_id` tinytext NOT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `user_name`, `registration_date`, `status`, `subscribe_until`, `count_request`, `thread_id`) VALUES
+(123, 'Василий', '2024-02-09 18:01:14', 'free', '2024-02-09', 3, 'thread_HZTBVpq4HHk37LmVK1v0xuSu'),
+(243697626, 'Василий КарпюК', '2024-02-09 19:49:32', 'paid', '2024-02-09', 3, 'thread_j0EKO6UqO6qTGMHxkXYAmJ5f');
+
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+
+    """
+    try:
+        cursor.execute(sql)
+        logging.info("Миграция успешна, БД создали:")
+        connection.commit()
+    except:
+        logging.error('DB append failed! createDB ')
+        connection.rollback()
+
+# createDB()

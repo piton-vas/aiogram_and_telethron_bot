@@ -44,3 +44,14 @@ async def message_handler(message: Message):
     else:
         await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
                              reply_markup=keyBoards.mainMenu)
+
+@router.callback_query(F.data == "try_free")
+async def send_random_value(callback: types.CallbackQuery):
+    await callback.message.answer("Спроси меня что-нибудь про законы о закупках")
+    await callback.answer()
+
+
+@router.callback_query(F.data == "profile")
+async def send_random_value(callback: types.CallbackQuery):
+    await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
+    await callback.answer()
