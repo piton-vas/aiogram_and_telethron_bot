@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Появился нейронный ответ">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="фикс конфигурации для прода">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/keyBoards.py" beforeDir="false" afterPath="$PROJECT_DIR$/keyBoards.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/requierments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requierments.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -199,7 +197,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707509080831</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="фикс конфигурации для прода">
+      <option name="closed" value="true" />
+      <created>1707513744502</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1707513744502</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -225,7 +231,8 @@
     <MESSAGE value="funсtion can_user_make_openAI_request" />
     <MESSAGE value="funсtion create_new_tread" />
     <MESSAGE value="Появился нейронный ответ" />
-    <option name="LAST_COMMIT_MESSAGE" value="Появился нейронный ответ" />
+    <MESSAGE value="фикс конфигурации для прода" />
+    <option name="LAST_COMMIT_MESSAGE" value="фикс конфигурации для прода" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -63,8 +63,8 @@ def new_free_day(user_id, connection):
     try:
         cursor.execute(sql)
         connection.commit()
-    except:
-        logging.error('DB append failed!')
+    except Error as e:
+        logging.error(f"DB append failed! new_free_day '{e}'new_free_day'")
         connection.rollback()
 
 def new_try_counter(user_id, connection):
@@ -75,8 +75,8 @@ def new_try_counter(user_id, connection):
     try:
         cursor.execute(sql)
         connection.commit()
-    except:
-        logging.error('DB append failed!')
+    except Error as e:
+        logging.error(f"DB append failed! new_try_counter '{e}' ")
         connection.rollback()
 
 def change_user_status_to_free(user_id, connection):
@@ -89,8 +89,8 @@ def change_user_status_to_free(user_id, connection):
     try:
         cursor.execute(sql)
         connection.commit()
-    except:
-        logging.error('DB append failed! change_user_status_to_free ')
+    except Error as e:
+        logging.error(f"DB append failed! change_user_status_to_free '{e}'")
         connection.rollback()
 
 def can_user_make_openAI_request(user_id):
@@ -147,8 +147,8 @@ def make_one_month_subscribe(user_id):
         cursor.execute(sql)
         logging.info("One month subscribe, user_id:" + str(user_id))
         connection.commit()
-    except:
-        logging.error('DB append failed! make_one_month_subscribe')
+    except Error as e:
+        logging.error(f"DB append failed! make_one_month_subscribe '{e}'")
         connection.rollback()
 
 # make_one_month_subscribe(123)
@@ -163,8 +163,8 @@ def add_thread_id_to_user(user_id, thread_id):
         cursor.execute(sql)
         logging.info("make thread for user_id:" + str(user_id))
         connection.commit()
-    except:
-        logging.error('DB append failed! add_thread_id_to_user ' )
+    except Error as e:
+        logging.error(f"DB append failed! add_thread_id_to_user '{e}'" )
         connection.rollback()
 
 
@@ -172,23 +172,8 @@ def createDB():
     connection = mydbConnection()
     cursor = connection.cursor()
     sql = """
-    -- phpMyAdmin SQL Dump
--- version 5.2.1
--- https://www.phpmyadmin.net/
---
--- Host: localhost
--- Generation Time: Feb 09, 2024 at 11:41 PM
--- Server version: 5.7.35-38
--- PHP Version: 7.4.33
-
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
 
 
-/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
-/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
-/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
-/*!40101 SET NAMES utf8mb4 */;
 
 --
 -- Database: `piton_neurozakup`
@@ -228,8 +213,8 @@ INSERT INTO `users` (`user_id`, `user_name`, `registration_date`, `status`, `sub
         cursor.execute(sql)
         logging.info("Миграция успешна, БД создали:")
         connection.commit()
-    except:
-        logging.error('DB append failed! createDB ')
+    except Error as e:
+        logging.error(f"DB append failed! createDB '{e}'")
         connection.rollback()
 
 # createDB()
