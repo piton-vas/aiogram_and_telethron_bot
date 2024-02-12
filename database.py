@@ -1,5 +1,5 @@
 import logging
-# logging.basicConfig(level=logging.INFO)  # Отключить после дебага
+logging.basicConfig(level=logging.INFO)  # Отключить после дебага
 
 import mysql.connector
 from mysql.connector import Error
@@ -43,6 +43,8 @@ def add_new_user(user_id, user_name):
         logging.info('New user has been registred, iser_id:' + str(user_id) + ' User_name:' + user_name)
 
 
+
+
 def check_user_status(user_id, user_name=''):
     connection = mydbConnection()
     cursor = connection.cursor()
@@ -56,9 +58,9 @@ def check_user_status(user_id, user_name=''):
 
 def new_free_day(user_id, connection):
     cursor = connection.cursor()
-    sql = f"""UPDATE users 
+    sql = f"""UPDATE users
             SET subscribe_until='{datetime.now().date()}',
-                count_request=1             
+                count_request=1
             WHERE user_id='{user_id}'"""
     try:
         cursor.execute(sql)
@@ -69,8 +71,8 @@ def new_free_day(user_id, connection):
 
 def new_try_counter(user_id, connection):
     cursor = connection.cursor()
-    sql = f"""UPDATE users 
-            SET count_request = count_request + 1             
+    sql = f"""UPDATE users
+            SET count_request = count_request + 1
             WHERE user_id='{user_id}'"""
     try:
         cursor.execute(sql)
@@ -81,10 +83,10 @@ def new_try_counter(user_id, connection):
 
 def change_user_status_to_free(user_id, connection):
     cursor = connection.cursor()
-    sql = f"""UPDATE users 
-            SET status = 'free', 
+    sql = f"""UPDATE users
+            SET status = 'free',
             count_request = 1,
-            subscribe_until='{datetime.now().date()}'        
+            subscribe_until='{datetime.now().date()}'
             WHERE user_id='{user_id}'"""
     try:
         cursor.execute(sql)
@@ -94,6 +96,7 @@ def change_user_status_to_free(user_id, connection):
         connection.rollback()
 
 def can_user_make_openAI_request(user_id):
+    return True
     connection = mydbConnection()
     cursor = connection.cursor()
     sql = f"SELECT user_id, status, subscribe_until, count_request, thread_id from users WHERE user_id='{user_id}'"
@@ -167,54 +170,3 @@ def add_thread_id_to_user(user_id, thread_id):
         logging.error(f"DB append failed! add_thread_id_to_user '{e}'" )
         connection.rollback()
 
-
-def createDB():
-    connection = mydbConnection()
-    cursor = connection.cursor()
-    sql = """
-
-
-
---
--- Database: `piton_neurozakup`
---
-
--- --------------------------------------------------------
-
---
--- Table structure for table `users`
---
-
-CREATE TABLE IF NOT EXISTS `users` (
-  `user_id` int(11) NOT NULL,
-  `user_name` varchar(100) NOT NULL,
-  `registration_date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
-  `status` enum('free','paid','admin','') NOT NULL DEFAULT 'free',
-  `subscribe_until` date DEFAULT NULL,
-  `count_request` int(11) DEFAULT NULL,
-  `thread_id` tinytext NOT NULL,
-  PRIMARY KEY (`user_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `users`
---
-
-INSERT INTO `users` (`user_id`, `user_name`, `registration_date`, `status`, `subscribe_until`, `count_request`, `thread_id`) VALUES
-(123, 'Василий', '2024-02-09 18:01:14', 'free', '2024-02-09', 3, 'thread_HZTBVpq4HHk37LmVK1v0xuSu'),
-(243697626, 'Василий КарпюК', '2024-02-09 19:49:32', 'paid', '2024-02-09', 3, 'thread_j0EKO6UqO6qTGMHxkXYAmJ5f');
-
-/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
-/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
-/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
-
-    """
-    try:
-        cursor.execute(sql)
-        logging.info("Миграция успешна, БД создали:")
-        connection.commit()
-    except Error as e:
-        logging.error(f"DB append failed! createDB '{e}'")
-        connection.rollback()
-
-# createDB()

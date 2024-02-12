@@ -7,7 +7,6 @@
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="фикс конфигурации для прода">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requierments.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requierments.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,7 +46,7 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
     "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/env",
-    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
+    "settings.editor.selected.configurable": "consents"
   }
 }]]></component>
   <component name="RecentsManager">
@@ -205,7 +204,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707513744502</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="фикс конфигурации для прода">
+      <option name="closed" value="true" />
+      <created>1707517071366</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1707517071367</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -241,11 +248,6 @@
           <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python312/Lib/_pydatetime.py</url>
           <line>1839</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/handlers.py</url>
-          <line>42</line>
-          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
