@@ -36,10 +36,10 @@ async def menu(message: Message):
 @router.message()
 async def message_handler(message: Message):
     user_id = message.from_user.id
-    thread_id = database.can_user_make_openAI_request(user_id)[1]
+    thread_id = "thread_tjXAUQjpkW5E824feP25CIlR"
     if thread_id: # Убедились, что доступ есть.
         # print(thread_id, message.text)
-        responce_from_openAI = add_user_messege_and_run("thread_nGJzpOhIZW3W3tpdx2Sz2cYs", message.text) # Должен быть thread_id
+        responce_from_openAI = add_user_messege_and_run(thread_id, message.text)
         await message.reply(f"Ответ ОпенАИ: {responce_from_openAI}", reply_markup=keyBoards.openAIpoll)
     else:
         await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
