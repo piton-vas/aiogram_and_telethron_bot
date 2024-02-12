@@ -31,7 +31,6 @@ def create_new_tread(user_id):
 # )
 
 def add_user_messege_and_run(thread_id, message):
-    thread_id = "thread_nGJzpOhIZW3W3tpdx2Sz2cYs"  # Костыль, чтобы исправить TODO: Исправить
 
     add_message = client.beta.threads.messages.create(
         thread_id=thread_id,
