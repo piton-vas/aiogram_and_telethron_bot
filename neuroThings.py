@@ -1,6 +1,6 @@
-from env.config import openAI_TOKEN, neuro_Zakupki_asst_ID, testing_thread
+from env.config import openAI_TOKEN, neuro_Zakupki_asst_ID
 import asyncio
-from openai import OpenAI, beta as openAI_beta, AsyncOpenAI
+from openai import OpenAI, AsyncOpenAI
 import database
 
 client = OpenAI(api_key=openAI_TOKEN)

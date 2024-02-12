@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Тест подключения">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Тест подключения - 2">
+      <change afterPath="$PROJECT_DIR$/openAI_asist_update.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuroThings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,17 +44,18 @@
     "Python.handlers.executor": "Run",
     "Python.main.executor": "Run",
     "Python.neuroThings.executor": "Run",
+    "Python.openAI_asist_update.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/env",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot",
     "settings.editor.selected.configurable": "org.jetbrains.plugins.github.ui.GithubSettingsConfigurable"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
@@ -235,7 +239,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707737945932</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Тест подключения - 2">
+      <option name="closed" value="true" />
+      <created>1707740287345</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1707740287346</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -263,7 +275,8 @@
     <MESSAGE value="Появился нейронный ответ" />
     <MESSAGE value="фикс конфигурации для прода" />
     <MESSAGE value="Тест подключения" />
-    <option name="LAST_COMMIT_MESSAGE" value="Тест подключения" />
+    <MESSAGE value="Тест подключения - 2" />
+    <option name="LAST_COMMIT_MESSAGE" value="Тест подключения - 2" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
