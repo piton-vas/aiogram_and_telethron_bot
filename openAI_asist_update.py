@@ -1,6 +1,4 @@
-from env.config import openAI_TOKEN, neuro_Zakupki_asst_ID
-from pprint import pprint, pp, PrettyPrinter
-import asyncio
+from config import openAI_TOKEN, neuro_Zakupki_asst_ID
 from openai import OpenAI, AsyncOpenAI
 # import database
 

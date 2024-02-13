@@ -3,9 +3,9 @@ logging.basicConfig(level=logging.INFO)  # Отключить после деб�
 
 import mysql.connector
 from mysql.connector import Error
-import env.config
+import config
 
-from datetime import datetime, date
+from datetime import datetime
 from dateutil.relativedelta import relativedelta
 
 
@@ -16,10 +16,10 @@ def mydbConnection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host=env.config.db_host,
-            user=env.config.db_username,
-            passwd=env.config.db_pass,
-            database=env.config.db_name
+            host=config.db_host,
+            user=config.db_username,
+            passwd=config.db_pass,
+            database=config.db_name
         )
     except Error as e:
         logging.error(f"The error '{e}' occurred")
@@ -123,7 +123,7 @@ def can_user_make_openAI_request(user_id):
             logging.info("User_id:" + str(user_id) + " obnulil his free days, Free try#1")
             return True, thread_id
         else:                                        # Попытки сегодня были уже. Сча будем считать их
-            if count_request < env.config.count_request_maximum_free: # Бесплатных попыток хватает,
+            if count_request < config.count_request_maximum_free: # Бесплатных попыток хватает,
                 new_try_counter(user_id, connection)
                 logging.info("User_id:" + str(user_id) + ". Free try#" + str(count_request+1))
                 return True, thread_id

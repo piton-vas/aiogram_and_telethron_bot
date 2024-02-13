@@ -40,7 +40,7 @@ async def message_handler(message: Message):
     if thread_id: # Убедились, что доступ есть.
         # print(thread_id, message.text)
         responce_from_openAI = add_user_messege_and_run(thread_id, message.text)
-        await message.reply(f"Ответ ОпенАИ: {responce_from_openAI}", reply_markup=keyBoards.openAIpoll)
+        await message.reply(responce_from_openAI, reply_markup=keyBoards.openAIpoll)
     else:
         await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
                              reply_markup=keyBoards.mainMenu)
@@ -55,3 +55,9 @@ async def send_random_value(callback: types.CallbackQuery):
 async def send_random_value(callback: types.CallbackQuery):
     await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
     await callback.answer()
+
+@router.callback_query(F.data == "profile")
+async def send_random_value(callback: types.CallbackQuery):
+    await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
+    await callback.answer()
+
