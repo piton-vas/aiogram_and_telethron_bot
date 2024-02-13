@@ -1,6 +1,12 @@
-from config import openAI_TOKEN, neuro_Zakupki_asst_ID
+# from config import openAI_TOKEN, neuro_Zakupki_asst_ID
 from openai import OpenAI, AsyncOpenAI
 import database
+
+import os
+from dotenv import load_dotenv
+load_dotenv('.venv/.env')
+openAI_TOKEN = os.getenv('db_hopenAI_TOKENost')
+neuro_Zakupki_asst_ID = os.getenv('neuro_Zakupki_asst_ID')
 
 client = OpenAI(api_key=openAI_TOKEN)
 client_async = AsyncOpenAI(api_key=openAI_TOKEN)

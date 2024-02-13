@@ -1,9 +1,14 @@
-import config
+# import config
 import asyncio
 import logging
 # import database
 # import neuroThings
 # import keyBoards
+import os
+from dotenv import load_dotenv
+load_dotenv('.venv/.env')
+BOT_TOKEN = os.getenv('BOT_TOKEN')
+
 
 # import sys
 
@@ -16,7 +21,7 @@ from handlers import router
 
 
 async def main():
-    bot = Bot(token=config.BOT_TOKEN, parse_mode=ParseMode.HTML)
+    bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     # dp.message.register(cmd_profile)

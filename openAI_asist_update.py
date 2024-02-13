@@ -1,9 +1,9 @@
 from config import openAI_TOKEN, neuro_Zakupki_asst_ID
 from openai import OpenAI, AsyncOpenAI
 # import database
-
-client = OpenAI(api_key=openAI_TOKEN)
-client_async = AsyncOpenAI(api_key=openAI_TOKEN)
+# print(openAI_TOKEN)
+# client = OpenAI(api_key=openAI_TOKEN)
+# client_async = AsyncOpenAI(api_key=openAI_TOKEN)
 
 
 
