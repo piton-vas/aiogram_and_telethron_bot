@@ -11,7 +11,6 @@ from dateutil.relativedelta import relativedelta
 
 
 
-
 def mydbConnection():
     connection = None
     try:
