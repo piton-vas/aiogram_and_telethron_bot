@@ -1,4 +1,5 @@
-import config
-print(config.neuro_Zakupki_asst_ID)
-
-# myvirtualenv 
+import os
+from dotenv import load_dotenv
+load_dotenv('.venv/.env')
+openAI_TOKEN = os.getenv('db_hopenAI_TOKENost')
+print(openAI_TOKEN)
