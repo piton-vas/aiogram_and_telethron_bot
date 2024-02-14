@@ -3,15 +3,14 @@ logging.basicConfig(level=logging.INFO)  # Отключить после деб�
 
 import mysql.connector
 from mysql.connector import Error
-
-import os
+from os import getenv
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-db_host = os.getenv('db_host')
-db_username = os.getenv('db_username')
-db_pass = os.getenv('db_pass')
-db_name = os.getenv('db_name')
-count_request_maximum_free = os.getenv('count_request_maximum_free')
+db_host = getenv('db_host')
+db_username = getenv('db_username')
+db_pass = getenv('db_pass')
+db_name = getenv('db_name')
+count_request_maximum_free = getenv('count_request_maximum_free')
 
 
 # import config

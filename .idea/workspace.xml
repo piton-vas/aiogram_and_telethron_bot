@@ -4,11 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="id_message_to_china">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="i_see_response_handler&#10;i_see_edits_handler">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/get_china_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_china_answer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session_name.session" beforeDir="false" afterPath="$PROJECT_DIR$/session_name.session" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuroThings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/session_name.session" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,25 +44,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_china_answer.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.keyBoards.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.neuroThings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.openAI_asist_update.executor&quot;: &quot;Run&quot;,
-    &quot;Python.synhro_request.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Try__tg__client&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piton/PycharmProjects/neuroZakupki_bot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python.config.executor": "Run",
+    "Python.database.executor": "Run",
+    "Python.get_china_answer.executor": "Run",
+    "Python.handlers.executor": "Run",
+    "Python.keyBoards.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.neuroThings.executor": "Run",
+    "Python.openAI_asist_update.executor": "Run",
+    "Python.synhro_request.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Try__tg__client",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
@@ -343,7 +346,23 @@
       <option name="project" value="LOCAL" />
       <updated>1707916007294</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="send_msg_to_china">
+      <option name="closed" value="true" />
+      <created>1707917471539</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1707917471539</updated>
+    </task>
+    <task id="LOCAL-00031" summary="i_see_response_handler&#10;i_see_edits_handler">
+      <option name="closed" value="true" />
+      <created>1707919376672</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1707919376672</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -406,7 +425,9 @@
     <MESSAGE value="Исправлена опечатка" />
     <MESSAGE value="print(&quot;Внутри ручки&quot;)" />
     <MESSAGE value="id_message_to_china" />
-    <option name="LAST_COMMIT_MESSAGE" value="id_message_to_china" />
+    <MESSAGE value="send_msg_to_china" />
+    <MESSAGE value="i_see_response_handler&#10;i_see_edits_handler" />
+    <option name="LAST_COMMIT_MESSAGE" value="i_see_response_handler&#10;i_see_edits_handler" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -415,11 +436,6 @@
           <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python312/Lib/_pydatetime.py</url>
           <line>1839</line>
           <option name="timeStamp" value="1" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/get_china_answer.py</url>
-          <line>29</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
