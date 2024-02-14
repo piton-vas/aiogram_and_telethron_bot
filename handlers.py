@@ -1,25 +1,26 @@
+from os import getenv
+from dotenv import load_dotenv
+load_dotenv('.venv/.env')
+
 from aiogram import types, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
 
-import database
+from telethon import TelegramClient, sync, events
+telethron_chat_for_exchenge_with_china = getenv('telethron_chat_for_exchenge_with_china')
+
 from database import add_new_user
 from neuroThings import add_user_messege_and_run
 
-import keyBoards
-# from keyBoards import mainMenu
+from keyBoards import mainMenu, openAIpoll
 
-import os
-from dotenv import load_dotenv
-load_dotenv('.venv/.env')
-telethron_chat_for_exchenge_with_china = os.getenv('telethron_chat_for_exchenge_with_china')
 
 
 router = Router()
 
 @router.message(Command("start"))
 async def start_handler(message: Message):
-    await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=keyBoards.mainMenu)
+    await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=mainMenu)
     add_new_user(message.from_user.id, message.from_user.full_name)
 
 @router.message(Command("neuroZakupki_bot", prefix="@"))
@@ -32,7 +33,7 @@ async def cmd_profile(message: types.Message):
 
 @router.message(F.text == "Меню")
 async def menu(message: Message):
-    await message.answer('Привет, вот меню', reply_markup=keyBoards.mainMenu)
+    await message.answer('Привет, вот меню', reply_markup=mainMenu)
 
 # Отвечать openAI
 @router.message()
@@ -42,10 +43,11 @@ async def message_handler(message: Message):
     if thread_id: # Убедились, что доступ есть.
         # print(thread_id, message.text)
         responce_from_openAI = add_user_messege_and_run(thread_id, message.text)
-        await message.reply(responce_from_openAI, reply_markup=keyBoards.openAIpoll)
+        await message.reply(responce_from_openAI, reply_markup=openAIpoll)
     else:
         await message.answer("На сегодня бесплатные запросы закончились. Приходите завтра или оплатите подписку",
-                             reply_markup=keyBoards.mainMenu)
+                             reply_markup=mainMenu)
+
 
 @router.callback_query(F.data == "try_free")
 async def send_random_value(callback: types.CallbackQuery):
@@ -60,8 +62,6 @@ async def send_random_value(callback: types.CallbackQuery):
 
 #Ручки тг клиента
 
-from telethon import TelegramClient, sync, events
-import asyncio
 
 async def send_msg_to_china(client, messege ):
     messege = "@neuro44fz_bot " + messege

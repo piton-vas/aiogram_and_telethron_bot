@@ -3,15 +3,14 @@ logging.basicConfig(level=logging.INFO)  # Отключить после деб�
 
 import mysql.connector
 from mysql.connector import Error
-
-import os
+from os import getenv
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-env_db_host = os.getenv('env_db_host')
-env_db_username = os.getenv('env_db_username')
-env_db_pass = os.getenv('env_db_pass')
-env_db_name = os.getenv('env_db_name')
-env_count_request_maximum_free = os.getenv('env_count_request_maximum_free')
+db_host = getenv('db_host')
+db_username = getenv('db_username')
+db_pass = getenv('db_pass')
+db_name = getenv('db_name')
+count_request_maximum_free = getenv('count_request_maximum_free')
 
 
 # import config
@@ -26,10 +25,10 @@ def mydbConnection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host=env_db_host,
-            user=env_db_username,
-            passwd=env_db_pass,
-            database=env_db_name
+            host=db_host,
+            user=db_username,
+            passwd=db_pass,
+            database=db_name
         )
     except Error as e:
         logging.error(f"The error '{e}' occurred")
@@ -133,7 +132,7 @@ def can_user_make_openAI_request(user_id):
             logging.info("User_id:" + str(user_id) + " obnulil his free days, Free try#1")
             return True, thread_id
         else:                                        # Попытки сегодня были уже. Сча будем считать их
-            if count_request < env_count_request_maximum_free: # Бесплатных попыток хватает,
+            if count_request < count_request_maximum_free: # Бесплатных попыток хватает,
                 new_try_counter(user_id, connection)
                 logging.info("User_id:" + str(user_id) + ". Free try#" + str(count_request+1))
                 return True, thread_id
