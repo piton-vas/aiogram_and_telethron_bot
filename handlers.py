@@ -12,13 +12,10 @@ import keyBoards
 
 router = Router()
 
-
 @router.message(Command("start"))
 async def start_handler(message: Message):
     await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=keyBoards.mainMenu)
     add_new_user(message.from_user.id, message.from_user.full_name)
-
-
 
 @router.message(Command("neuroZakupki_bot", prefix="@"))
 async def cmd_custom1(message: Message):
@@ -51,13 +48,61 @@ async def send_random_value(callback: types.CallbackQuery):
     await callback.answer()
 
 
-@router.callback_query(F.data == "profile")
-async def send_random_value(callback: types.CallbackQuery):
-    await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
-    await callback.answer()
+# @router.callback_query(F.data == "profile")
+# async def send_random_value(callback: types.CallbackQuery):
+#     await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
+#     await callback.answer()
+#
+# @router.callback_query(F.data == "profile")
+# async def send_random_value(callback: types.CallbackQuery):
+#     await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
+#     await callback.answer()
+#
+# china_proxy_router = Router()
+#
+# @china_proxy_router.message(Command("listen_china_bot", prefix="@"))
+# async def cmd_custom1(message: Message):
+#     await message.answer("@neuro44fz_bot Что такое обеспечение контракта?")
+#
+# @china_proxy_router.message()
+# async def echo(message: types.Message):
+#     print(message)
+# # async def message_handler(message: Message):
+# #     user_id = message.from_user.id
+# #
+# #     responce = "Ответ " + str(user_id)
+# #     await message.reply(responce)
 
-@router.callback_query(F.data == "profile")
-async def send_random_value(callback: types.CallbackQuery):
-    await callback.message.answer("А здесь у нас будет про баланс и вообще личный кабинет", reply_markup=keyBoards.profile_menu)
-    await callback.answer()
+
+#Ручки тг клиента
+
+from telethon import TelegramClient, sync, events
+import asyncio
+
+# client = TelegramClient('session_name', telethon_api_id, telethon_api_hash)
+#
+#
+# @client.on(events.NewMessage(chats=('v_karpyuk')))
+# async def normal_handler(event):
+#     # print(event.message.to_dict())
+#     # print("Го")
+#     # if event.message.to_dict() == "Го":
+#     send_message_id = client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
+#     await asyncio.sleep(5)
+#     print(send_message_id)
+
+@events.register(events.MessageEdited(chats=('neuro44fz_bot')))
+async def normal_handler(event):
+    print(event.message.to_dict())   #.message.to_dict()['message']
+
+
+@events.register(events.NewMessage(chats=('v_karpyuk')))
+async def normal_handler(event):
+    print("Внутри ручки")
+    # print(event.message.to_dict())
+    # print("Го")
+    # if event.message.to_dict() == "Го":
+    # send_message_id = client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
+    # await asyncio.sleep(5)
+    # print(send_message_id)
 
