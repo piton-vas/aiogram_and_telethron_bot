@@ -93,16 +93,23 @@ import asyncio
 
 @events.register(events.MessageEdited(chats=('neuro44fz_bot')))
 async def normal_handler(event):
-    print(event.message.to_dict())   #.message.to_dict()['message']
+    arr = event.message.to_dict()
+    # print(arr)
+    # print(arr['message'])   #.message.to_dict()['message']
+    # print(arr[0])   #.message.to_dict()['message']
+
+
 
 
 @events.register(events.NewMessage(chats=('v_karpyuk')))
 async def normal_handler(event):
-    print("Внутри ручки")
-    # print(event.message.to_dict())
-    # print("Го")
-    # if event.message.to_dict() == "Го":
-    # send_message_id = client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
-    # await asyncio.sleep(5)
-    # print(send_message_id)
+    if str(event.message.to_dict()['message']).startswith("Го") or str(event.message.to_dict()['message']).startswith("Uj"):
+        print("Погнали")
+        client = event.client
+        send_message_to_china = await client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
+        id_message_to_china = send_message_to_china.to_dict()["id"]
+        print(send_message_to_china.to_dict()["id"])
+
+        pass
+
 
