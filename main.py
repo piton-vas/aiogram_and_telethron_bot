@@ -16,7 +16,7 @@ from aiogram.fsm.storage.memory import MemoryStorage
 telethon_api_id = os.getenv('telethon_api_id')
 telethon_api_hash = os.getenv('telethon_api_hash')
 
-from handlers import router, normal_handler
+from handlers import router, start_go_test_handler, i_see_edits_handler, i_see_response_handler
 
 from telethon import TelegramClient, sync, events
 
@@ -32,7 +32,9 @@ async def main():
 
 async  def proxi_to_china():
     client = TelegramClient('session_name', telethon_api_id, telethon_api_hash)
-    client.add_event_handler(normal_handler)
+    client.add_event_handler(start_go_test_handler)
+    client.add_event_handler(i_see_response_handler)
+    client.add_event_handler(i_see_edits_handler)
 
     await client.start()
 
