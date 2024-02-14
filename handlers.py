@@ -79,26 +79,27 @@ async def send_random_value(callback: types.CallbackQuery):
 from telethon import TelegramClient, sync, events
 import asyncio
 
-# client = TelegramClient('session_name', telethon_api_id, telethon_api_hash)
-#
-#
-# @client.on(events.NewMessage(chats=('v_karpyuk')))
-# async def normal_handler(event):
-#     # print(event.message.to_dict())
-#     # print("Го")
-#     # if event.message.to_dict() == "Го":
-#     send_message_id = client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
-#     await asyncio.sleep(5)
-#     print(send_message_id)
+async def send_msg_to_china(client, messege ):
+    messege = "@neuro44fz_bot " + messege
+    send_message_to_china = await client.send_message('NeuroBot2NeuroBot', messege)
+    id_message_to_china = send_message_to_china.to_dict()["id"]
+    print("Сообщение отправили, его id:" + str(id_message_to_china))
+    return id_message_to_china
 
 @events.register(events.MessageEdited(chats=('neuro44fz_bot')))
-async def normal_handler(event):
+async def edits_handler(event):
     arr = event.message.to_dict()
-    # print(arr)
-    # print(arr['message'])   #.message.to_dict()['message']
+    print(arr)
+    print(arr['message'])   #.message.to_dict()['message']
     # print(arr[0])   #.message.to_dict()['message']
 
+@events.register(events.NewMessage(chats=('neuro44fz_bot')))
+async def i_see_response_handler(event):
+    arr = event.message.to_dict()
+    print(arr)
+    print(arr['message'])   #.message.to_dict()['message']
 
+    # print(arr[0])   #.message.to_dict()['message']
 
 
 @events.register(events.NewMessage(chats=('v_karpyuk')))
@@ -106,9 +107,11 @@ async def normal_handler(event):
     if str(event.message.to_dict()['message']).startswith("Го") or str(event.message.to_dict()['message']).startswith("Uj"):
         print("Погнали")
         client = event.client
-        send_message_to_china = await client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
-        id_message_to_china = send_message_to_china.to_dict()["id"]
-        print(send_message_to_china.to_dict()["id"])
+        await send_msg_to_china(client, "Что такое обеспечение заявки")
+
+        # send_message_to_china = await client.send_message('neuro44fz_bot', 'Что такое обеспечение контракта?')
+        # id_message_to_china = send_message_to_china.to_dict()["id"]
+        # print(send_message_to_china.to_dict()["id"])
 
         pass
 

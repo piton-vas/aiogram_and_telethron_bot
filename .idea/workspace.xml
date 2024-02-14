@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="print(&quot;Внутри ручки&quot;)">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="id_message_to_china">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_china_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_china_answer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/session_name.session" beforeDir="false" afterPath="$PROJECT_DIR$/session_name.session" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/session_name.session-journal" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -335,7 +335,15 @@
       <option name="project" value="LOCAL" />
       <updated>1707910699324</updated>
     </task>
-    <option name="localTasksCounter" value="29" />
+    <task id="LOCAL-00029" summary="id_message_to_china">
+      <option name="closed" value="true" />
+      <created>1707916007294</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1707916007294</updated>
+    </task>
+    <option name="localTasksCounter" value="30" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -397,7 +405,8 @@
     <MESSAGE value="Перенес конфиги в .venv/.env" />
     <MESSAGE value="Исправлена опечатка" />
     <MESSAGE value="print(&quot;Внутри ручки&quot;)" />
-    <option name="LAST_COMMIT_MESSAGE" value="print(&quot;Внутри ручки&quot;)" />
+    <MESSAGE value="id_message_to_china" />
+    <option name="LAST_COMMIT_MESSAGE" value="id_message_to_china" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
