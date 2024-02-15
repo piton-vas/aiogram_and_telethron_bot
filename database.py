@@ -180,23 +180,34 @@ def add_thread_id_to_user(user_id, thread_id):
         connection.rollback()
 
 
-def db_add_to_cashe_user_massage_id(user_chat_id, user_massage_id):
-    user_chat_and_massage_id = str(user_chat_id) + str(user_massage_id)
+def db_new_cashe_user_massage_id(user_chat_and_massage_id, proxy_messege_id):
     connection = mydbConnection()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * from messege_id_cashe WHERE user_chat_and_massage_id='{user_chat_id}{user_massage_id}'")
+    cursor.execute(f"SELECT * from messege_id_cashe WHERE user_chat_and_massage_id=user_chat_and_massage_id")
     if cursor.fetchall():  # checking if something found with this username
-        logging.info(f"messege_id_cashe already exists. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
+        logging.info(f"messege_id_cashe already exists. user_chat_and_massage_id:'{user_chat_and_massage_id}'")
     else:
-        sql = f"INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`)VALUES('{user_chat_and_massage_id}')"
-        print(sql)
-        logging.info(f"messege_id_cashe created. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
+        sql = f"INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`, `proxy_message_id`) VALUES ({user_chat_and_massage_id}, {proxy_messege_id})"
+        # print(sql)
         try:
             cursor.execute(sql)
-            logging.info(f"messege_id_cashe created. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
             connection.commit()
+            logging.info(f"messege_id_cashe created. user_chat_and_massage_id:'{user_chat_and_massage_id}'  proxy_messege_id:'{proxy_messege_id}'")
         except Error as e:
             logging.error(f"DB append failed! db_add_to_cashe_user_massage_id '{e}'")
             connection.rollback()
 
+# def db_add_to_cache_proxy_messege_id(user_chat_and_massage_id, proxy_messege_id):
+#     connection = mydbConnection()
+#     cursor = connection.cursor()
+#
+#     sql = f"UPDATE messege_id_cashe SET proxy_message_id={proxy_messege_id} WHERE user_chat_and_massage_id={user_chat_and_massage_id}"
+#     print(sql)
+#     try:
+#         cursor.execute(sql)
+#         connection.commit()
+#         logging.info(f"db_add_to_cache_proxy_messege_id ok, user_chat_and_massage_id:'{user_chat_and_massage_id}', proxy_messege_id:'{proxy_messege_id}'")
+#     except Error as e:
+#         logging.error(f"DB append failed! db_add_to_cache_proxy_messege_id '{e}'" )
+#         connection.rollback()
 
