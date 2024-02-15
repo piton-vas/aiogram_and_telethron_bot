@@ -44,4 +44,5 @@ if __name__ == "__main__":
     if server_mode=="PROD":
         asyncio.run(main())
     elif server_mode=="TEST":
+        asyncio.run(main())
         asyncio.run(proxi_to_china())
