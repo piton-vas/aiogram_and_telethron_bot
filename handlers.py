@@ -11,7 +11,7 @@ telethron_chat_for_exchenge_with_china = getenv('telethron_chat_for_exchenge_wit
 telethon_api_id = getenv('telethon_api_id')
 telethon_api_hash = getenv('telethon_api_hash')
 
-from database import add_new_user, db_add_to_cashe_user_massage_id
+from database import add_new_user, db_new_cashe_user_massage_id
 from neuroThings import add_user_messege_and_run
 
 from keyBoards import mainMenu, openAIpoll
@@ -21,16 +21,20 @@ from keyBoards import mainMenu, openAIpoll
 router = Router()
 
 async def send_msg_to_china(message, user_chat_and_massage_id):
-    print("сча отправим " + message)
     client = TelegramClient('.venv/session_name', telethon_api_id, telethon_api_hash)
     await client.start()
     message = "@neuro44fz_bot " + message
     # print("Сча будем засылать в чат: " + str(telethron_chat_for_exchenge_with_china))
     send_message_to_china = await client.send_message(telethron_chat_for_exchenge_with_china, message)
-    print(send_message_to_china)
-    id_message_to_china = send_message_to_china.to_dict()["id"]
-    print("Сообщение отправили, его id:" + str(id_message_to_china))
-    # client.disconnect()
+    # print(send_message_to_china)
+    proxy_messege_id = send_message_to_china.to_dict()["id"]
+
+    # print("Сообщение отправили, его id:" + str(proxy_messege_id))
+
+    db_new_cashe_user_massage_id(user_chat_and_massage_id, proxy_messege_id)
+    # db_add_to_cache_proxy_messege_id(user_chat_and_massage_id, proxy_messege_id)
+
+    client.disconnect()
 
     # return id_message_to_china
     # for dialog in client.iter_dialogs():
@@ -64,7 +68,7 @@ async def message_handler(message: Message):
 
     await send_msg_to_china(message.text, user_chat_and_massage_id)
 
-    db_add_to_cashe_user_massage_id(message.chat.id, message.message_id)
+
 
     # user_id = message.from_user.id
     # thread_id = "thread_tjXAUQjpkW5E824feP25CIlR"
