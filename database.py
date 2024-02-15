@@ -179,3 +179,24 @@ def add_thread_id_to_user(user_id, thread_id):
         logging.error(f"DB append failed! add_thread_id_to_user '{e}'" )
         connection.rollback()
 
+
+def db_add_to_cashe_user_massage_id(user_chat_id, user_massage_id):
+    user_chat_and_massage_id = str(user_chat_id) + str(user_massage_id)
+    connection = mydbConnection()
+    cursor = connection.cursor()
+    cursor.execute(f"SELECT * from messege_id_cashe WHERE user_chat_and_massage_id='{user_chat_id}{user_massage_id}'")
+    if cursor.fetchall():  # checking if something found with this username
+        logging.info(f"messege_id_cashe already exists. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
+    else:
+        sql = f"INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`)VALUES('{user_chat_and_massage_id}')"
+        print(sql)
+        logging.info(f"messege_id_cashe created. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
+        try:
+            cursor.execute(sql)
+            logging.info(f"messege_id_cashe created. user_chat_id:'{user_chat_id}'  user_massage_id:'{user_massage_id}'")
+            connection.commit()
+        except Error as e:
+            logging.error(f"DB append failed! db_add_to_cashe_user_massage_id '{e}'")
+            connection.rollback()
+
+
