@@ -12,6 +12,8 @@ db_pass = getenv('db_pass')
 db_name = getenv('db_name')
 count_request_maximum_free = getenv('count_request_maximum_free')
 
+from functools import lru_cache
+
 
 # import config
 
@@ -28,8 +30,7 @@ def mydbConnection():
             host=db_host,
             user=db_username,
             passwd=db_pass,
-            database=db_name
-        )
+            database=db_name        )
     except Error as e:
         logging.error(f"The error '{e}' occurred")
 
@@ -180,34 +181,87 @@ def add_thread_id_to_user(user_id, thread_id):
         connection.rollback()
 
 
-def db_new_cashe_user_massage_id(user_chat_and_massage_id, proxy_messege_id):
+def db_new_cashe_user_message_id(user_chat_id, user_message_id, proxy_messege_id):
+    # print("db_new_cashe_user_message_id + user_chat_id " + str(user_chat_id))
+
+    user_chat_and_massage_id = str(user_chat_id) + str(user_message_id)
     connection = mydbConnection()
     cursor = connection.cursor()
-    cursor.execute(f"SELECT * from messege_id_cashe WHERE user_chat_and_massage_id=user_chat_and_massage_id")
+    cursor.execute(f"SELECT * from messege_id_cashe WHERE user_chat_and_massage_id={user_chat_and_massage_id}")
     if cursor.fetchall():  # checking if something found with this username
         logging.info(f"messege_id_cashe already exists. user_chat_and_massage_id:'{user_chat_and_massage_id}'")
     else:
-        sql = f"INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`, `proxy_message_id`) VALUES ({user_chat_and_massage_id}, {proxy_messege_id})"
+        sql = f"""INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`, `user_chat_id`, `user_message_id`, `proxy_message_id`) 
+                VALUES ({user_chat_and_massage_id}, {user_chat_id}, {user_message_id}, {proxy_messege_id})"""
         # print(sql)
         try:
             cursor.execute(sql)
             connection.commit()
             logging.info(f"messege_id_cashe created. user_chat_and_massage_id:'{user_chat_and_massage_id}'  proxy_messege_id:'{proxy_messege_id}'")
+            connection.close()
         except Error as e:
-            logging.error(f"DB append failed! db_add_to_cashe_user_massage_id '{e}'")
+            logging.error(f"DB append failed! db_add_to_cashe_user_message_id '{e}'")
             connection.rollback()
+            connection.close()
 
-# def db_add_to_cache_proxy_messege_id(user_chat_and_massage_id, proxy_messege_id):
-#     connection = mydbConnection()
-#     cursor = connection.cursor()
-#
-#     sql = f"UPDATE messege_id_cashe SET proxy_message_id={proxy_messege_id} WHERE user_chat_and_massage_id={user_chat_and_massage_id}"
-#     print(sql)
-#     try:
-#         cursor.execute(sql)
-#         connection.commit()
-#         logging.info(f"db_add_to_cache_proxy_messege_id ok, user_chat_and_massage_id:'{user_chat_and_massage_id}', proxy_messege_id:'{proxy_messege_id}'")
-#     except Error as e:
-#         logging.error(f"DB append failed! db_add_to_cache_proxy_messege_id '{e}'" )
-#         connection.rollback()
 
+@lru_cache(maxsize=128)
+def db_check_cache_replay_messege_id(proxy_message_id):
+    # print("Стучимся заново")
+    # print(type(proxy_message_id))
+    try:
+        sql = f"""SELECT
+                `user_chat_id`,
+                `user_message_id`,
+                `proxy_message_id`
+            FROM
+                `messege_id_cashe`
+            WHERE
+                `proxy_message_id` = {proxy_message_id}"""
+
+        connection = mydbConnection()
+        cursor = connection.cursor()
+        cursor.execute(sql)
+        myresult = cursor.fetchall()
+        if len(myresult)==0:
+            # print("Возвращаем неправду")
+            return False
+        print(myresult[0])
+        user_chat_id = myresult[0][0]
+        user_message_id = myresult[0][1]
+        # proxy_message_id = myresult[1]
+
+        # print(myresult)
+        # cursor.execute(sql)
+        # connection.commit()
+        # logging.INFO(f"We found cache for user. db_check_cache_replay_messege_id proxy_message_id:")
+        return {'user_chat_id':user_chat_id,
+                "user_message_id":user_message_id}
+    except Error as e:
+        logging.WARN(f"We does not found cache for user. db_check_cache_replay_messege_id Error:{e}")
+        connection.rollback()
+        connection.close()
+        return False
+
+
+# ХЗ, не работает
+def cache_or_db_check_replay_messege_id(proxy_message_id):
+    proxy_message_id = str(proxy_message_id)
+    try:
+        try_cache = db_check_cache_replay_messege_id(proxy_message_id)
+        if try_cache != False:
+            # print("Уже есть кэш")
+            logging.INFO(f"cache_or_db_check_replay_messege_id. We found cache for user. proxy_message_id:")
+            return try_cache
+        else:
+            # print("кэша нет")
+            logging.INFO(f"We does not find cache for user, trying find in db. proxy_message_id:")
+            return db_check_cache_replay_messege_id.__wrapped__(proxy_message_id)  # Принудительно без кеша
+
+    except Error as e:
+        logging.WARN(f"We does not found cache for user. db_check_cache_replay_messege_id Error:{e}")
+
+
+
+
+# print(cache_or_db_check_replay_messege_id(999))

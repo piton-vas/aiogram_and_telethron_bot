@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="db_add_to_cashe_user_massage_id">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="db_new_cashe_user_massage_id">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/neuroZakupki_bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/neuroZakupki_bot.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -44,6 +47,8 @@
   <component name="PropertiesComponent">{
   &quot;keyToString&quot;: {
     &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Python tests.Python tests in test_telethron.py.executor&quot;: &quot;Run&quot;,
+    &quot;Python._test_telethron.executor&quot;: &quot;Run&quot;,
     &quot;Python.config.executor&quot;: &quot;Run&quot;,
     &quot;Python.database.executor&quot;: &quot;Run&quot;,
     &quot;Python.database_asyncho.executor&quot;: &quot;Run&quot;,
@@ -369,7 +374,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708003684162</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="db_new_cashe_user_massage_id">
+      <option name="closed" value="true" />
+      <created>1708006287051</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1708006287051</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -435,7 +448,8 @@
     <MESSAGE value="send_msg_to_china" />
     <MESSAGE value="i_see_response_handler&#10;i_see_edits_handler" />
     <MESSAGE value="db_add_to_cashe_user_massage_id" />
-    <option name="LAST_COMMIT_MESSAGE" value="db_add_to_cashe_user_massage_id" />
+    <MESSAGE value="db_new_cashe_user_massage_id" />
+    <option name="LAST_COMMIT_MESSAGE" value="db_new_cashe_user_massage_id" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
