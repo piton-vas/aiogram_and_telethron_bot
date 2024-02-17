@@ -2,11 +2,11 @@ import asyncio
 import aiomysql
 from os import getenv
 from dotenv import load_dotenv
-load_dotenv('.venv/.env')
-db_host = getenv('db_host')
-db_username = getenv('db_username')
-db_pass = getenv('db_pass')
-db_name = getenv('db_name')
+load_dotenv('../.venv/.env')
+env_db_host = getenv('env_db_host')
+env_db_username = getenv('env_db_username')
+env_db_pass = getenv('env_db_pass')
+env_db_name = getenv('env_db_name')
 
 
 # async def select(loop, sql, pool):
@@ -34,9 +34,9 @@ async def db_asynch_add_to_cashe_user_massage_id_2(user_chat_id, user_massage_id
 
 
 async def main(loop):
-    pool = await aiomysql.create_pool(host=db_host, port=3306,
-                                       user=db_username, password=db_pass,
-                                       db=db_name, loop=loop)
+    pool = await aiomysql.create_pool(host=env_db_host, port=3306,
+                                      user=env_db_username, password=env_db_pass,
+                                      db=env_db_name, loop=loop)
 
     c2 = db_asynch_add_to_cashe_user_massage_id_2(user_chat_id=12345, user_massage_id=456, pool=pool)
 

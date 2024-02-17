@@ -5,12 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="db_new_cashe_user_massage_id">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/neuroZakupki_bot.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/neuroZakupki_bot.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/handlers/handlers_telethon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database_asyncho.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/database_asyncho.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/get_china_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/get_china_answer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_aiogram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/misc.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/misc.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/neuroThings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/openAI_asist_update.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/openAI_asist_update.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,6 +37,16 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
+  <component name="ProblemsViewState">
+    <hideBySeverity>
+      <option value="11" />
+      <option value="12" />
+      <option value="13" />
+      <option value="14" />
+      <option value="15" />
+      <option value="16" />
+    </hideBySeverity>
+  </component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 3
 }</component>
@@ -44,37 +58,39 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in test_telethron.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python._test_telethron.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database_asyncho.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_china_answer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.keyBoards.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.neuroThings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.openAI_asist_update.executor&quot;: &quot;Run&quot;,
-    &quot;Python.synhro_request.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;Try__tg__client&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piton/Downloads/chatgpt_telegram_bot-main&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests in test_telethron.py.executor": "Run",
+    "Python._test_telethron.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.database.executor": "Run",
+    "Python.database_asyncho.executor": "Run",
+    "Python.get_china_answer.executor": "Run",
+    "Python.handlers.executor": "Run",
+    "Python.keyBoards.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.neuroThings.executor": "Run",
+    "Python.openAI_asist_update.executor": "Run",
+    "Python.synhro_request.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "Try__tg__client",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers",
+    "settings.editor.selected.configurable": "com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
   </component>
