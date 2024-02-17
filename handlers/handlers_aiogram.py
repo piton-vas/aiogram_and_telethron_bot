@@ -39,6 +39,7 @@ router = Router()
 async def start_handler(message: Message, state: UserState):
     await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=mainMenu)
     await state.set_state(UserState.FREE_TRIAL)
+    await state.update_data(test_atr="testStr")
 
     # add_new_user(message.from_user.id, message.from_user.full_name)
 
