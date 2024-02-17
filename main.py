@@ -9,6 +9,7 @@ env_server_mode = getenv('env_server_mode')
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
+from MySQLStorage import MySQLStorage
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 from handlers.handlers_aiogram import router
 
@@ -18,9 +19,21 @@ env_telethon_api_hash = getenv('env_telethon_api_hash')
 env_telethon_session = ".venv/session_name.session"
 from handlers.handlers_telethon import i_see_edits_handler, i_see_response_handler
 
+env_db_host = getenv('env_db_host')
+env_db_username = getenv('env_db_username')
+env_db_pass = getenv('env_db_pass')
+env_db_name = getenv('env_db_name')
+
+
+
 async def main_aiogram_bot():
     bot = Bot(token=env_main_tg_bot_token, parse_mode=ParseMode.HTML)
-    dp = Dispatcher(storage=MemoryStorage())
+    dp = Dispatcher(storage=MySQLStorage(host=env_db_host,
+                                         user=env_db_username,
+                                         database=env_db_name,
+                                         password=env_db_pass,
+                                         bot=bot))
+    # dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
