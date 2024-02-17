@@ -66,7 +66,7 @@ class MySQLStorage(BaseStorage):
                 db=self.database,
             )
             self.cursor = await self.connection.cursor(aiomysql.DictCursor)
-            await self.__create_tables()
+            # await self.__create_tables()
 
         return self.connection
 
@@ -127,9 +127,9 @@ class MySQLStorage(BaseStorage):
         result = await self.cursor.fetchone()
         return pickle.loads(result["data"]) if result else {}
 
-    async def update_data(self, bot: Bot, key: StorageKey, data: Dict[str, Any]) -> Dict[str, Any]:
-        current_data = await self.get_data(bot=bot, key=key)
+    async def update_data(self, key: StorageKey, data: Dict[str, Any]) -> Dict[str, Any]:
+        current_data = await self.get_data(bot=self.bot, key=key)
         current_data.update(data)
-        await self.set_data(bot=bot, key=key, data=current_data)
+        await self.set_data(bot=self.bot, key=key, data=current_data)
         return current_data
 

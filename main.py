@@ -13,7 +13,7 @@ from MySQLStorage import MySQLStorage
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 from handlers.handlers_aiogram import router
 
-from telethon import TelegramClient  #, sync, events
+from telethon import TelegramClient
 env_telethon_api_id = getenv('env_telethon_api_id')
 env_telethon_api_hash = getenv('env_telethon_api_hash')
 env_telethon_session = ".venv/session_name.session"
@@ -41,16 +41,16 @@ async def main_aiogram_bot():
 
 
 async def main_telethron_bot():
-    client_proxy_to_telegram = TelegramClient(session=".venv/session_name.session",
-                                              api_id=int(env_telethon_api_id),
-                                              api_hash=env_telethon_api_hash)
-    client_proxy_to_telegram.add_event_handler(i_see_response_handler)
-    client_proxy_to_telegram.add_event_handler(i_see_edits_handler)
-    await  client_proxy_to_telegram.start()  #  Class 'TelegramClient' does not define '__await__', so the 'await' operator cannot be used on its instances
+    client_telethron = TelegramClient(session=".venv/session_name.session",
+                                      api_id=int(env_telethon_api_id),
+                                      api_hash=env_telethon_api_hash)
+    client_telethron.add_event_handler(i_see_response_handler)
+    client_telethron.add_event_handler(i_see_edits_handler)
+    await  client_telethron.start()  #  Class 'TelegramClient' does not define '__await__', so the 'await' operator cannot be used on its instances
     try:
-        await client_proxy_to_telegram.run_until_disconnected()
+        await client_telethron.run_until_disconnected()
     finally:
-        await client_proxy_to_telegram.disconnect()
+        await client_telethron.disconnect()
 
 
 
