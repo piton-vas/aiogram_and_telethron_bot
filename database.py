@@ -6,38 +6,29 @@ from mysql.connector import Error
 from os import getenv
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-db_host = getenv('db_host')
-db_username = getenv('db_username')
-db_pass = getenv('db_pass')
-db_name = getenv('db_name')
-count_request_maximum_free = getenv('count_request_maximum_free')
+env_db_host = getenv('env_db_host')
+env_db_username = getenv('env_db_username')
+env_db_pass = getenv('env_db_pass')
+env_db_name = getenv('env_db_name')
 
 from functools import lru_cache
 
-
-# import config
-
 from datetime import datetime
 from dateutil.relativedelta import relativedelta
-
-
 
 
 def mydbConnection():
     connection = None
     try:
         connection = mysql.connector.connect(
-            host=db_host,
-            user=db_username,
-            passwd=db_pass,
-            database=db_name        )
+            host=env_db_host,
+            user=env_db_username,
+            passwd=env_db_pass,
+            database=env_db_name)
     except Error as e:
         logging.error(f"The error '{e}' occurred")
 
     return connection
-
-
-
 
 def add_new_user(user_id, user_name):
     connection = mydbConnection()
@@ -52,19 +43,12 @@ def add_new_user(user_id, user_name):
         connection.commit()
         logging.info('New user has been registred, iser_id:' + str(user_id) + ' User_name:' + user_name)
 
-
-
-
 def check_user_status(user_id, user_name=''):
     connection = mydbConnection()
     cursor = connection.cursor()
     cursor.execute(f"SELECT user_id, status from users WHERE user_id='{user_id}'")
     myresult = cursor.fetchall()
     return myresult[0][1]
-
-
-# myresult1 = check_user_status(243697626, 'Василий')
-# print(myresult1)
 
 def new_free_day(user_id, connection):
     cursor = connection.cursor()
@@ -144,9 +128,6 @@ def can_user_make_openAI_request(user_id):
 
     # print(myresult)
 
-# print(can_user_make_openAI_request(123))
-
-
 def make_one_month_subscribe(user_id):
     connection = mydbConnection()
     cursor = connection.cursor()
@@ -164,8 +145,6 @@ def make_one_month_subscribe(user_id):
         logging.error(f"DB append failed! make_one_month_subscribe '{e}'")
         connection.rollback()
 
-# make_one_month_subscribe(123)
-
 def add_thread_id_to_user(user_id, thread_id):
     connection = mydbConnection()
     cursor = connection.cursor()
@@ -180,10 +159,7 @@ def add_thread_id_to_user(user_id, thread_id):
         logging.error(f"DB append failed! add_thread_id_to_user '{e}'" )
         connection.rollback()
 
-
-def db_new_cashe_user_message_id(user_chat_id, user_message_id, proxy_messege_id):
-    # print("db_new_cashe_user_message_id + user_chat_id " + str(user_chat_id))
-
+def db_add_new_cashe_user_message_id(user_chat_id, user_message_id, proxy_messege_id):
     user_chat_and_massage_id = str(user_chat_id) + str(user_message_id)
     connection = mydbConnection()
     cursor = connection.cursor()
@@ -193,7 +169,6 @@ def db_new_cashe_user_message_id(user_chat_id, user_message_id, proxy_messege_id
     else:
         sql = f"""INSERT INTO `messege_id_cashe`(`user_chat_and_massage_id`, `user_chat_id`, `user_message_id`, `proxy_message_id`) 
                 VALUES ({user_chat_and_massage_id}, {user_chat_id}, {user_message_id}, {proxy_messege_id})"""
-        # print(sql)
         try:
             cursor.execute(sql)
             connection.commit()
@@ -207,8 +182,7 @@ def db_new_cashe_user_message_id(user_chat_id, user_message_id, proxy_messege_id
 
 @lru_cache(maxsize=128)
 def db_check_cache_replay_messege_id(proxy_message_id):
-    # print("Стучимся заново")
-    # print(type(proxy_message_id))
+
     try:
         sql = f"""SELECT
                 `user_chat_id`,
@@ -224,17 +198,9 @@ def db_check_cache_replay_messege_id(proxy_message_id):
         cursor.execute(sql)
         myresult = cursor.fetchall()
         if len(myresult)==0:
-            # print("Возвращаем неправду")
             return False
-        print(myresult[0])
         user_chat_id = myresult[0][0]
         user_message_id = myresult[0][1]
-        # proxy_message_id = myresult[1]
-
-        # print(myresult)
-        # cursor.execute(sql)
-        # connection.commit()
-        # logging.INFO(f"We found cache for user. db_check_cache_replay_messege_id proxy_message_id:")
         return {'user_chat_id':user_chat_id,
                 "user_message_id":user_message_id}
     except Error as e:
@@ -244,7 +210,7 @@ def db_check_cache_replay_messege_id(proxy_message_id):
         return False
 
 
-# ХЗ, не работает
+# ХЗ, не работает TODO: Почитнить кэшью
 def cache_or_db_check_replay_messege_id(proxy_message_id):
     proxy_message_id = str(proxy_message_id)
     try:

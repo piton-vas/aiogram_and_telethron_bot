@@ -1,45 +1,54 @@
 import asyncio
 import logging
-logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
-                    level=logging.INFO)
+
 from os import getenv
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-server_mode = getenv('server_mode')
+env_server_mode = getenv('env_server_mode')
 
-BOT_TOKEN = getenv('BOT_TOKEN')
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
+env_main_tg_bot_token = getenv('env_main_tg_bot_token')
+from handlers.handlers_aiogram import router
 
-telethon_api_id = getenv('telethon_api_id')
-telethon_api_hash = getenv('telethon_api_hash')
-from handlers import router, i_see_edits_handler, i_see_response_handler, handler_test
 from telethon import TelegramClient  #, sync, events
+env_telethon_api_id = getenv('env_telethon_api_id')
+env_telethon_api_hash = getenv('env_telethon_api_hash')
+env_telethon_session = ".venv/session_name.session"
+from handlers.handlers_telethon import i_see_edits_handler, i_see_response_handler
 
 async def main_aiogram_bot():
-    bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
+    bot = Bot(token=env_main_tg_bot_token, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
-async def proxi_to_china():
-    client_proxy_to_telegram = TelegramClient('.venv/send_msg_to_china', telethon_api_id, telethon_api_hash)
+
+
+async def main_telethron_bot():
+    client_proxy_to_telegram = TelegramClient(session=".venv/session_name.session",
+                                              api_id=int(env_telethon_api_id),
+                                              api_hash=env_telethon_api_hash)
     client_proxy_to_telegram.add_event_handler(i_see_response_handler)
-    await  client_proxy_to_telegram.start()
+    client_proxy_to_telegram.add_event_handler(i_see_edits_handler)
+    await  client_proxy_to_telegram.start()  #  Class 'TelegramClient' does not define '__await__', so the 'await' operator cannot be used on its instances
     try:
         await client_proxy_to_telegram.run_until_disconnected()
     finally:
         await client_proxy_to_telegram.disconnect()
 
+
+
 async def main():
-    await asyncio.gather(main_aiogram_bot(), proxi_to_china())   #
+    await asyncio.gather(main_aiogram_bot(), main_telethron_bot())   #
 
 
 if __name__ == "__main__":
-    logging.basicConfig(level=logging.INFO)
-    if server_mode=="PROD":
+    logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
+                        level=logging.INFO)
+    if env_server_mode=="PROD":
         asyncio.run(main())
-    elif server_mode=="TEST":
+    elif env_server_mode=="TEST":
         asyncio.run(main())
