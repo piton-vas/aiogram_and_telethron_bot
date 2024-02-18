@@ -3,7 +3,7 @@ from dotenv import load_dotenv
 load_dotenv('../.venv/.env')
 
 from openai import OpenAI
-from database import add_thread_id_to_user
+# from database import add_thread_id_to_user
 
 env_openAI_token = getenv('env_openAI_token')
 env_openAI_neuroZakupki_asst_ID = getenv('env_openAI_neuroZakupki_asst_ID')
@@ -16,7 +16,9 @@ def my_openAI_connection():
 
 def create_new_tread(user_id):
     thread_id = client.beta.threads.create()
-    add_thread_id_to_user(user_id, thread_id.id)
+                                                        # Вот это нужно точно переписать под fsm_storage
+    # add_thread_id_to_user(user_id, thread_id.id)
+
 
 # def add_user_messege_to_thread(thread_id, user_message):
 #     message = client.beta.threads.messages.create(

@@ -5,7 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки">
+      <change afterPath="$PROJECT_DIR$/local_cache.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/fsm.py" beforeDir="false" afterPath="$PROJECT_DIR$/fsm.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_aiogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_telethon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/neuroThings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,28 +57,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in test_telethron.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python._test_telethron.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database_asyncho.executor&quot;: &quot;Run&quot;,
-    &quot;Python.get_china_answer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.keyBoards.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.neuroThings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.openAI_asist_update.executor&quot;: &quot;Run&quot;,
-    &quot;Python.synhro_request.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;try__MySQLStorage&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests in test_telethron.py.executor": "Run",
+    "Python._test_telethron.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.database.executor": "Run",
+    "Python.database_asyncho.executor": "Run",
+    "Python.get_china_answer.executor": "Run",
+    "Python.handlers.executor": "Run",
+    "Python.keyBoards.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.neuroThings.executor": "Run",
+    "Python.openAI_asist_update.executor": "Run",
+    "Python.synhro_request.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "git-widget-placeholder": "try__MySQLStorage",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
@@ -397,7 +410,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708172617312</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="В этой ветке сделал как везде env_">
+      <option name="closed" value="true" />
+      <created>1708245719547</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1708245719547</updated>
+    </task>
+    <task id="LOCAL-00036" summary="В этой ветке сделал как везде env_">
+      <option name="closed" value="true" />
+      <created>1708245951390</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708245951390</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -428,7 +457,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Работающий пример Эхо бота" />
     <MESSAGE value="Эхо бот по статье Хабра" />
     <MESSAGE value="Добавил кнопочки" />
     <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
@@ -453,7 +481,8 @@
     <MESSAGE value="db_add_to_cashe_user_massage_id" />
     <MESSAGE value="db_new_cashe_user_massage_id" />
     <MESSAGE value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
+    <MESSAGE value="В этой ветке сделал как везде env_" />
+    <option name="LAST_COMMIT_MESSAGE" value="В этой ветке сделал как везде env_" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

@@ -7,13 +7,13 @@ from aiogram import types, F, Router, Bot
 from aiogram.types import Message
 from aiogram.filters import Command
 from aiogram.enums.parse_mode import ParseMode
-from aiogram.fsm.context import FSMContext
+# from aiogram.fsm.context import FSMContext
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 
 from fsm import UserState
 from keyBoards import mainMenu
 from handlers.handlers_telethon import send_msg_to_coze_bot_via_tg
-from database import add_new_user
+# from local_cache import memory_dict
 
 
 # TODO: Вот этот запрос бы прикрутить к готовеньким bot, Dispatcher
@@ -37,9 +37,15 @@ async def send_response_from_bot_to_user(user_chat_id, message_text, reply_to_ms
 router = Router()
 @router.message(Command("start"))
 async def start_handler(message: Message, state: UserState):
+
+    global memory_dict
     await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=mainMenu)
-    await state.set_state(UserState.FREE_TRIAL)
-    await state.update_data(test_atr="testStr")
+    # await state.set_state(UserState.FREE_TRIAL)
+    # await state.update_data(test_atr="testStr")
+    memory_dict.update(dict123=123)
+    print(memory_dict)
+
+
 
     # add_new_user(message.from_user.id, message.from_user.full_name)
 
