@@ -13,16 +13,19 @@ from MySQLStorage import MySQLStorage
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 from handlers.handlers_aiogram import router
 
-from telethon import TelegramClient
+from telethon import TelegramClient,events
 env_telethon_api_id = getenv('env_telethon_api_id')
 env_telethon_api_hash = getenv('env_telethon_api_hash')
 env_telethon_session = ".venv/session_name.session"
-from handlers.handlers_telethon import i_see_edits_handler, i_see_response_handler
+from handlers.handlers_telethon import i_see_edits_handler, i_see_response_handler, start_go_test_handler
 
 env_db_host = getenv('env_db_host')
 env_db_username = getenv('env_db_username')
 env_db_pass = getenv('env_db_pass')
 env_db_name = getenv('env_db_name')
+
+# cache_dict = dict()
+# cache_dict = {'dict': 1, 'dictionary': 2}
 
 
 
@@ -46,7 +49,8 @@ async def main_telethron_bot():
                                       api_hash=env_telethon_api_hash)
     client_telethron.add_event_handler(i_see_response_handler)
     client_telethron.add_event_handler(i_see_edits_handler)
-    await  client_telethron.start()  #  Class 'TelegramClient' does not define '__await__', so the 'await' operator cannot be used on its instances
+    client_telethron.add_event_handler(start_go_test_handler)
+    await client_telethron.start()  #  Class 'TelegramClient' does not define '__await__', so the 'await' operator cannot be used on its instances
     try:
         await client_telethron.run_until_disconnected()
     finally:
@@ -55,7 +59,7 @@ async def main_telethron_bot():
 
 
 async def main():
-    await asyncio.gather(main_aiogram_bot(), main_telethron_bot())   #
+    await asyncio.gather(main_telethron_bot(), main_aiogram_bot())   #
 
 
 if __name__ == "__main__":

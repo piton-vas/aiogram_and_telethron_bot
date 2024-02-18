@@ -6,7 +6,7 @@
   </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
-    <value-preview-text-wrapping value="true" />
+    <value-preview-text-wrapping value="false" />
     <value-preview-pinned value="false" />
   </component>
   <component name="DBNavigator.Project.DatabaseBrowserManager">
@@ -24,14 +24,13 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="dd636cb1-8f7f-4407-8995-650d4d255d50" object-ref="schemas/pitonvas$piton_neurozakup/tables/users" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="dd636cb1-8f7f-4407-8995-650d4d255d50" />
   </component>
   <component name="DBNavigator.Project.DatasetFilterManager">
+    <filter-actions connection-id="dd636cb1-8f7f-4407-8995-650d4d255d50" dataset="pitonvas$piton_neurozakup.aiogram_fsm_data" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="dd636cb1-8f7f-4407-8995-650d4d255d50" dataset="pitonvas$piton_neurozakup.users" active-filter-id="a94e59b7-e692-443a-836b-c661512733b1">
       <filter id="a94e59b7-e692-443a-836b-c661512733b1" name="all" temporary="false" custom-name="true" type="basic" join-type="AND" />
     </filter-actions>
