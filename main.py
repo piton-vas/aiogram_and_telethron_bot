@@ -7,7 +7,7 @@ import logging
 import os
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-BOT_TOKEN = os.getenv('BOT_TOKEN')
+env_main_tg_bot_token = os.getenv('env_main_tg_bot_token')
 
 
 # import sys
@@ -21,7 +21,7 @@ from handlers import router
 
 
 async def main():
-    bot = Bot(token=BOT_TOKEN, parse_mode=ParseMode.HTML)
+    bot = Bot(token=env_main_tg_bot_token, parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     # dp.message.register(cmd_profile)

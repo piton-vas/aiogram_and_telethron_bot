@@ -5,11 +5,11 @@ import database
 import os
 from dotenv import load_dotenv
 load_dotenv('.venv/.env')
-openAI_TOKEN = os.getenv('openAI_TOKEN')
-neuro_Zakupki_asst_ID = os.getenv('neuro_Zakupki_asst_ID')
+env_openAI_token = os.getenv('env_openAI_token')
+env_openAI_neuroZakupki_asst_ID = os.getenv('env_openAI_neuroZakupki_asst_ID')
 
-client = OpenAI(api_key=openAI_TOKEN)
-client_async = AsyncOpenAI(api_key=openAI_TOKEN)
+client = OpenAI(api_key=env_openAI_token)
+client_async = AsyncOpenAI(api_key=env_openAI_token)
 
 # my_assistant = client.beta.assistants.retrieve(neuro_Zakupki_asst_ID)
 # print(my_assistant)
@@ -45,7 +45,7 @@ def add_user_messege_and_run(thread_id, message):
 
     run = client.beta.threads.runs.create(
         thread_id=thread_id,
-        assistant_id=neuro_Zakupki_asst_ID
+        assistant_id=env_openAI_neuroZakupki_asst_ID
     )
     # print(run)
 
