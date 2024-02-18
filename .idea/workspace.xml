@@ -6,9 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MySQLStorage.py" beforeDir="false" afterPath="$PROJECT_DIR$/MySQLStorage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_aiogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
