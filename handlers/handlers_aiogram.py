@@ -1,5 +1,7 @@
 from os import getenv
 import logging
+from pprint import pprint
+
 from dotenv import load_dotenv
 load_dotenv('../.venv/.env')
 
@@ -62,8 +64,9 @@ async def send_random_value(callback: types.CallbackQuery):
 
 @router.message()
 async def message_handler(message: Message):
-
+    # pprint(message)
+    if message.from_user.id != 6927113111:
     # Пока основная точка входа в бота, потом надо поменять
-    await send_msg_to_coze_bot_via_tg(message=message.text,
-                                      user_chat_id=message.chat.id,
-                                      user_message_id=message.message_id)
+        await send_msg_to_coze_bot_via_tg(message=message.text,
+                                          user_chat_id=message.chat.id,
+                                          user_message_id=message.message_id)

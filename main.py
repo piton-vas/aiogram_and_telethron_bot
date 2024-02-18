@@ -31,12 +31,12 @@ env_db_name = getenv('env_db_name')
 
 async def main_aiogram_bot():
     bot = Bot(token=env_main_tg_bot_token, parse_mode=ParseMode.HTML)
-    dp = Dispatcher(storage=MySQLStorage(host=env_db_host,
-                                         user=env_db_username,
-                                         database=env_db_name,
-                                         password=env_db_pass,
-                                         bot=bot))
-    # dp = Dispatcher(storage=MemoryStorage())
+    # dp = Dispatcher(storage=MySQLStorage(host=env_db_host,
+    #                                      user=env_db_username,
+    #                                      database=env_db_name,
+    #                                      password=env_db_pass,
+    #                                      bot=bot))
+    dp = Dispatcher(storage=MemoryStorage())
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
@@ -59,7 +59,7 @@ async def main_telethron_bot():
 
 
 async def main():
-    await asyncio.gather(main_telethron_bot(), main_aiogram_bot())   #
+    await asyncio.gather(main_aiogram_bot())   # main_telethron_bot(),
 
 
 if __name__ == "__main__":
