@@ -45,7 +45,7 @@ async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
 async def start_go_test_handler(event):
     print("Погнали")
     if str(event.message.to_dict()['message']).startswith("Го") or str(event.message.to_dict()['message']).startswith("Uj"):
-        from main import cache_dict
+        from old_main import cache_dict
         global cache_dict
         print(cache_dict)
         cache_dict.update(dict12345=12345)

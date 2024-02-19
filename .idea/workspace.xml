@@ -4,11 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
+      <change afterPath="$PROJECT_DIR$/dev_fastAPI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_aiogramm_bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routes_FastAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_aiogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_telethon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Try_tg_client" />
+        <entry key="$PROJECT_DIR$" value="try_MySQLStorage_fixing_bag" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,16 +62,18 @@
     "Python.config.executor": "Run",
     "Python.database.executor": "Run",
     "Python.database_asyncho.executor": "Run",
+    "Python.dev_fastAPI.executor": "Debug",
     "Python.get_china_answer.executor": "Run",
     "Python.handlers.executor": "Run",
     "Python.keyBoards.executor": "Run",
     "Python.main.executor": "Run",
     "Python.neuroThings.executor": "Run",
     "Python.openAI_asist_update.executor": "Run",
+    "Python.routes_FastAPI.executor": "Run",
     "Python.synhro_request.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "try__MySQLStorage__fixing__bag",
+    "git-widget-placeholder": "try__fastAPI",
     "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
@@ -421,7 +425,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708245951390</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
+      <option name="closed" value="true" />
+      <created>1708329681995</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708329681995</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,19 +456,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/try_MySQLStorage" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -464,7 +464,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Эхо бот по статье Хабра" />
     <MESSAGE value="Добавил кнопочки" />
     <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
     <MESSAGE value="Получаем статус юзера" />
@@ -489,7 +488,8 @@
     <MESSAGE value="db_new_cashe_user_massage_id" />
     <MESSAGE value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
     <MESSAGE value="В этой ветке сделал как везде env_" />
-    <option name="LAST_COMMIT_MESSAGE" value="В этой ветке сделал как везде env_" />
+    <MESSAGE value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
+    <option name="LAST_COMMIT_MESSAGE" value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
