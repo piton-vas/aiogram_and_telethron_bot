@@ -1,4 +1,4 @@
-from handlers.handlers_aiogram import router
+from main_bot_iaogram.handlers_aiogram import router
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage

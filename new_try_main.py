@@ -9,15 +9,16 @@ env_server_mode = getenv('env_server_mode')
 from aiogram import Bot, Dispatcher
 from aiogram.enums.parse_mode import ParseMode
 from aiogram.fsm.storage.memory import MemoryStorage
-from MySQLStorage import MySQLStorage
-env_main_tg_bot_token = getenv('env_main_tg_bot_token')
-from handlers.handlers_aiogram import router
 
-from telethon import TelegramClient,events
+env_main_tg_bot_token = getenv('env_main_tg_bot_token')
+from main_bot_iaogram.handlers_aiogram import router
+
+from telethon import TelegramClient
+
 env_telethon_api_id = getenv('env_telethon_api_id')
 env_telethon_api_hash = getenv('env_telethon_api_hash')
 env_telethon_session = ".venv/session_name.session"
-from handlers.handlers_telethon import i_see_edits_handler, i_see_response_handler, start_go_test_handler
+from proxy_telethron.handlers_telethon import i_see_edits_handler, i_see_response_handler, start_go_test_handler
 
 env_db_host = getenv('env_db_host')
 env_db_username = getenv('env_db_username')
