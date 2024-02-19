@@ -1,4 +1,4 @@
-from handlers.handlers_telethon import i_see_response_handler, i_see_edits_handler, start_go_test_handler
+# from proxy_telethron.handlers_telethon import i_see_response_handler, i_see_edits_handler, start_go_test_handler
 from telethon import TelegramClient
 
 
@@ -15,6 +15,8 @@ client_telethron = TelegramClient(session=".venv/session_name.session",
 
 async def main_telethron_bot():
     global client_telethron
+    from proxy_telethron.handlers_telethon import i_see_response_handler, i_see_edits_handler, start_go_test_handler
+
     client_telethron.add_event_handler(i_see_response_handler)
     client_telethron.add_event_handler(i_see_edits_handler)
     client_telethron.add_event_handler(start_go_test_handler)

@@ -3,7 +3,7 @@ from os import getenv
 from dotenv import load_dotenv
 load_dotenv('../.venv/.env')
 
-from telethon import TelegramClient, events
+from telethon import events
 env_chat_for_exchenge_with_coze_bot = getenv('env_chat_for_exchenge_with_coze_bot')
 env_telethon_api_id = getenv('env_telethon_api_id')
 env_telethon_api_hash = getenv('env_telethon_api_hash')
@@ -12,22 +12,25 @@ env_coze_bot_id = getenv('env_coze_bot_id')
 
 from local_cache import memory_dict_add_new_cashe, memory_check_cache_replay_message_id
 
+from proxy_telethron.starting_inst_telethron import client_telethron
+
 
 # TODO:Вот этот запрос бы прикрутить к готовеньким TelegramClient
 async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
     global client_telethron
     # await client.start()
     message = "@neuro44fz_bot " + message
-    send_msg_to_coze = await client_telethron.send_message(entity=env_chat_for_exchenge_with_coze_bot,
-                                                      message=message)
-    proxy_message_id = send_msg_to_coze.to_dict()["id"]
-    # db_add_new_cashe_user_message_id(user_chat_id=user_chat_id,
-    #                                  user_message_id=user_message_id,
-    #                                  proxy_message_id=proxy_message_id)
+    await client_telethron.send_message(entity=env_chat_for_exchenge_with_coze_bot,
+                                                            message=message)
 
-    memory_dict_add_new_cashe(user_chat_id=user_chat_id,
-                              user_message_id=user_message_id,
-                              proxy_message_id=proxy_message_id)
+    # proxy_message_id = send_msg_to_coze.to_dict()["id"]
+    # # db_add_new_cashe_user_message_id(user_chat_id=user_chat_id,
+    # #                                  user_message_id=user_message_id,
+    # #                                  proxy_message_id=proxy_message_id)
+    #
+    # memory_dict_add_new_cashe(user_chat_id=user_chat_id,
+    #                           user_message_id=user_message_id,
+    #                           proxy_message_id=proxy_message_id)
 
     await client_telethron.disconnect()
 
@@ -41,10 +44,11 @@ async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
 async def start_go_test_handler(event):
     print("Погнали")
     if str(event.message.to_dict()['message']).startswith("Го") or str(event.message.to_dict()['message']).startswith("Uj"):
-        from main import cache_dict
-        global cache_dict
-        print(cache_dict)
-        cache_dict.update(dict12345=12345)
+        pass
+        # from main import cache_dict
+        # global cache_dict
+        # print(cache_dict)
+        # cache_dict.update(dict12345=12345)
         # client = event.client
         # await send_msg_to_china( "Что такое обеспечение заявки") # client,
 
@@ -76,7 +80,7 @@ async def i_see_response_handler(event):
 
         message_text = message_to_dict["message"]
                                                         # TODO: Перенести импорт наверх (исправить ошибку рекурсивности)
-        from handlers.handlers_aiogram import send_response_from_bot_to_user
+        from main_bot_iaogram.handlers_aiogram import send_response_from_bot_to_user
 
         await send_response_from_bot_to_user(user_chat_id=user_chat_id,
                                        message_text=message_text,

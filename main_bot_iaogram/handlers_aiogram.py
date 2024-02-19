@@ -1,20 +1,19 @@
 from os import getenv
-import logging
 from pprint import pprint
 
 from dotenv import load_dotenv
 load_dotenv('../.venv/.env')
 
-from aiogram import types, F, Router, Bot
+from aiogram import types, F, Router
 from aiogram.types import Message
 from aiogram.filters import Command
-from aiogram.enums.parse_mode import ParseMode
+
 # from aiogram.fsm.context import FSMContext
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 
 from fsm import UserState
 from keyBoards import mainMenu
-from handlers.handlers_telethon import send_msg_to_coze_bot_via_tg
+from proxy_telethron.handlers_telethon import send_msg_to_coze_bot_via_tg
 # from local_cache import memory_dict
 
 
