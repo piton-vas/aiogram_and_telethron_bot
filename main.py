@@ -59,7 +59,7 @@ async def main_telethron_bot():
 
 
 async def main():
-    await asyncio.gather(main_aiogram_bot())   # main_telethron_bot(),
+    await asyncio.gather(main_telethron_bot(),main_aiogram_bot())   # m
 
 
 if __name__ == "__main__":

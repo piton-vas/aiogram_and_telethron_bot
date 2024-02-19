@@ -47,9 +47,15 @@ async def start_handler(message: Message, state: UserState):
     memory_dict.update(dict123=123)
     print(memory_dict)
 
+# @router
+# async def gosurf_handler(message: Message):
+#     print("gosurf_handler")
+#     print(message.text)
+#     print(message)
+    # await send_msg_to_coze_bot_via_tg(message=message.text,
+    #                                   user_chat_id=message.chat.id,
+    #                                   user_message_id=message.message_id)
 
-
-    # add_new_user(message.from_user.id, message.from_user.full_name)
 
 @router.message(Command("neuroZakupki_bot", prefix="@"))
 async def cmd_custom1(message: Message):
@@ -62,10 +68,20 @@ async def send_random_value(callback: types.CallbackQuery):
     await callback.answer()
 
 
+# @router.update()
+# def router_get_updates(message: Message):
+#     pprint(message)
+#     pass
+
+
 @router.message()
 async def message_handler(message: Message):
-    # pprint(message)
+    pprint(message)
     if message.from_user.id != 6927113111:
+
+
+
+        pass
     # Пока основная точка входа в бота, потом надо поменять
         await send_msg_to_coze_bot_via_tg(message=message.text,
                                           user_chat_id=message.chat.id,
