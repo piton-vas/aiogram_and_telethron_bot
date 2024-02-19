@@ -21,9 +21,10 @@ from handlers.handlers_telethon import send_msg_to_coze_bot_via_tg
 # TODO: Вот этот запрос бы прикрутить к готовеньким bot, Dispatcher
 async def send_response_from_bot_to_user(user_chat_id, message_text, reply_to_msg_id):
     # print("send_response_from_bot_to_user")
-    bot = Bot(token=env_main_tg_bot_token,
-              parse_mode=ParseMode.HTML)
+    # bot = Bot(token=env_main_tg_bot_token,
+    #           parse_mode=ParseMode.HTML)
     # dp = Dispatcher(storage=MemoryStorage())
+    global bot
 
     await bot.send_message(chat_id=user_chat_id,
                            text=message_text,
@@ -32,20 +33,23 @@ async def send_response_from_bot_to_user(user_chat_id, message_text, reply_to_ms
 
     #TODO Как логи то нормально сделать в асинхр?
     # await logging.INFO(f"send_response_from_bot_to_user. We have resend response from coze_bot to user")
-    await bot.close()
+
+    # await bot.close()
 
 #________________ Стандартные ручки aiogram
 
 router = Router()
+
+
 @router.message(Command("start"))
 async def start_handler(message: Message, state: UserState):
 
-    global memory_dict
+    # global memory_dict
     await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=mainMenu)
     # await state.set_state(UserState.FREE_TRIAL)
     # await state.update_data(test_atr="testStr")
-    memory_dict.update(dict123=123)
-    print(memory_dict)
+    # memory_dict.update(dict123=123)
+    # print(memory_dict)
 
 # @router
 # async def gosurf_handler(message: Message):
