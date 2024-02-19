@@ -15,14 +15,10 @@ from local_cache import memory_dict_add_new_cashe, memory_check_cache_replay_mes
 
 # TODO:Вот этот запрос бы прикрутить к готовеньким TelegramClient
 async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
-
-
-    client = TelegramClient(session=".venv/send_msg_to_coze_bot_via_tg.session",
-                            api_id=int(env_telethon_api_id),
-                            api_hash=env_telethon_api_hash)
-    await client.start()
+    global client_telethron
+    # await client.start()
     message = "@neuro44fz_bot " + message
-    send_msg_to_coze = await client.send_message(entity=env_chat_for_exchenge_with_coze_bot,
+    send_msg_to_coze = await client_telethron.send_message(entity=env_chat_for_exchenge_with_coze_bot,
                                                       message=message)
     proxy_message_id = send_msg_to_coze.to_dict()["id"]
     # db_add_new_cashe_user_message_id(user_chat_id=user_chat_id,
@@ -33,7 +29,7 @@ async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
                               user_message_id=user_message_id,
                               proxy_message_id=proxy_message_id)
 
-    await client.disconnect()
+    await client_telethron.disconnect()
 
     # logging.INFO(f"send_msg_to_coze_bot_via_tg. We have send message to coze_bot by telethon") #TODO: TypeError: 'int' object is not callable
 
