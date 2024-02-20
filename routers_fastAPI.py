@@ -1,6 +1,4 @@
-# -*- coding: utf-8 -*-
-__author__ = 'Nikolay Mamashin (mamashin@gmail.com)'
-
+import logging
 from typing import Annotated
 
 from fastapi import APIRouter, Header
@@ -15,14 +13,15 @@ from aiogram import types
 root_router = APIRouter(
     prefix="",
     tags=["root"],
-    responses={404: {"description": "Not found"}},
 )
 
 
 @root_router.get("/")
 async def root() -> dict:
+    logging.info("🔯 get get")
     return {"message": "Hello World"}
 
+# @root_router.post()
 #
 # @root_router.post(cfg.webhook_path)
 # async def bot_webhook(update: dict,

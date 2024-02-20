@@ -4,15 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
-      <change afterPath="$PROJECT_DIR$/main_try_multi_app.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/proxy_telethron/main_telethron_bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routers_fastAPI.py" afterDir="false" />
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/dev_fastAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/dev_fastAPI.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/handlers/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_aiogramm_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/main_aiogramm_bot.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/old_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes_FastAPI.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/main_aiogramm_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/main_aiogramm_bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_try_multi_app.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/old_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/unUsed_files/old_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routers_fastAPI.py" beforeDir="false" afterPath="$PROJECT_DIR$/routers_fastAPI.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +78,7 @@
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "try__fastAPI",
-    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/proxy_telethron",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
@@ -93,11 +94,11 @@
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\proxy_telethron" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
     </key>
   </component>
   <component name="RunManager">
@@ -436,7 +437,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708329681995</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
+      <option name="closed" value="true" />
+      <created>1708430427504</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708430427504</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -467,7 +476,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Добавил кнопочки" />
     <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
     <MESSAGE value="Получаем статус юзера" />
     <MESSAGE value="funktion make_one_month_subscribe" />
@@ -492,7 +500,8 @@
     <MESSAGE value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
     <MESSAGE value="В этой ветке сделал как везде env_" />
     <MESSAGE value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
-    <option name="LAST_COMMIT_MESSAGE" value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
+    <MESSAGE value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
+    <option name="LAST_COMMIT_MESSAGE" value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -501,6 +510,11 @@
           <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python312/Lib/_pydatetime.py</url>
           <line>1839</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/routers_fastAPI.py</url>
+          <line>3</line>
+          <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

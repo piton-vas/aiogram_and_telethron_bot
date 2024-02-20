@@ -29,9 +29,9 @@ async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
     #                                  user_message_id=user_message_id,
     #                                  proxy_message_id=proxy_message_id)
 
-    memory_dict_add_new_cashe(user_chat_id=user_chat_id,
-                              user_message_id=user_message_id,
-                              proxy_message_id=proxy_message_id)
+    # memory_dict_add_new_cashe(user_chat_id=user_chat_id,
+    #                           user_message_id=user_message_id,
+    #                           proxy_message_id=proxy_message_id)
 
     await client.disconnect()
 
@@ -45,7 +45,7 @@ async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
 async def start_go_test_handler(event):
     print("Погнали")
     if str(event.message.to_dict()['message']).startswith("Го") or str(event.message.to_dict()['message']).startswith("Uj"):
-        from old_main import cache_dict
+        from unUsed_files.old_main import cache_dict
         global cache_dict
         print(cache_dict)
         cache_dict.update(dict12345=12345)
@@ -80,7 +80,7 @@ async def i_see_response_handler(event):
 
         message_text = message_to_dict["message"]
                                                         # TODO: Перенести импорт наверх (исправить ошибку рекурсивности)
-        from handlers.handlers_aiogram import send_response_from_bot_to_user
+        from main_bot_iaogram.handlers_aiogram import send_response_from_bot_to_user
 
         await send_response_from_bot_to_user(user_chat_id=user_chat_id,
                                        message_text=message_text,
