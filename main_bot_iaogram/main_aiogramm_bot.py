@@ -12,11 +12,10 @@ from aiogram.fsm.storage.memory import MemoryStorage
 
 
 
-load_dotenv('.venv/.env')
+load_dotenv('../.venv/.env')
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 
 async def main_aiogram_bot():
-    print("Begin main_aiogram_bot")
     bot = Bot(token=env_main_tg_bot_token,
               parse_mode=ParseMode.HTML)
     dp = Dispatcher(storage=MemoryStorage())

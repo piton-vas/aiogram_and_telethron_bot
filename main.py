@@ -1,35 +1,54 @@
 import asyncio
 
+import uvicorn
 from fastapi import FastAPI
 import logging
 
-from main_aiogramm_bot import main_aiogram_bot
+from main_bot_iaogram.main_aiogramm_bot import main_aiogram_bot
 
 # from db.config import engine, Base
 # from routers import book_router
 
 from fastapi import APIRouter, Depends
 
+from contextlib import asynccontextmanager
 
-app = FastAPI()
-router = APIRouter()
-
-app.include_router(router)
-
-
-# @app.on_event("startup")
-# async def startup():
-#     print('event("startup")')
-#     # create db tables
-#     pass
-    # async with engine.begin() as conn:
-    #     await conn.run_sync(Base.metadata.drop_all)
-    #     await conn.run_sync(Base.metadata.create_all)
+from proxy_telethron.main_telethron_bot import main_telethron_bot
+from routers_fastAPI import root_router
 
 
-if __name__ == '__main__':
-    print("__main__")
+@asynccontextmanager
+async def lifespan1(application: FastAPI):
+    logging.info("🚀 asyncio.gather")
+    # from main_bot_iaogram.main_aiogramm_bot import main_aiogram_bot
+    # await main_aiogram_bot()
+    await asyncio.gather(main_telethron_bot(), main_aiogram_bot())
+    yield
+    logging.info("⛔ Stopping asyncio.gather")
+
+
+
+def start():
+    app = FastAPI(lifespan=lifespan1)
+    app.include_router(root_router)
+    # subapi1 = FastAPI()
+    # # subapi1.include_router(root_router)
+    # app.mount("/subapi", subapi1)
+    # subapi2 = FastAPI()
+    # # subapi2.include_router(root_router)
+    # app.mount("/subapi", subapi2)
+    return app
+
+
+def main():
+    uvicorn.run(
+        "main:start",
+        workers=1,
+        factory=True,
+    )
+
+if __name__ == "__main__":
     logging.basicConfig(format='[%(levelname) 5s/%(asctime)s] %(name)s: %(message)s',
                         level=logging.INFO)
-    asyncio.run(main_aiogram_bot())
-    # uvicorn.run("app:app", port=1111, host='127.0.0.1')
+    main()
+

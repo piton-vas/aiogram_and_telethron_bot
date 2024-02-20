@@ -5,12 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
-      <change afterPath="$PROJECT_DIR$/dev_fastAPI.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/main_aiogramm_bot.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/routes_FastAPI.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/main_try_multi_app.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/proxy_telethron/main_telethron_bot.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/routers_fastAPI.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/requirements.txt" beforeDir="false" afterPath="$PROJECT_DIR$/requirements.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_aiogramm_bot.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/main_aiogramm_bot.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/old_main.py" beforeDir="false" afterPath="$PROJECT_DIR$/old_main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/routes_FastAPI.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,6 +69,7 @@
     "Python.handlers.executor": "Run",
     "Python.keyBoards.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.main_try_multi_app.executor": "Run",
     "Python.neuroThings.executor": "Run",
     "Python.openAI_asist_update.executor": "Run",
     "Python.routes_FastAPI.executor": "Run",
@@ -90,11 +93,11 @@
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
   </component>
   <component name="RunManager">

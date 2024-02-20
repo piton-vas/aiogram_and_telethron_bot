@@ -1,13 +1,12 @@
 import asyncio
 import logging
 
-from os import getenv
-from dotenv import load_dotenv
 from fastapi import FastAPI
 from contextlib import asynccontextmanager
 
 from loguru import logger
-
+from os import getenv
+from dotenv import load_dotenv
 
 load_dotenv('.venv/.env')
 env_server_mode = getenv('env_server_mode')
@@ -39,7 +38,7 @@ from routes_FastAPI import root_router
 @asynccontextmanager
 async def lifespan(application: FastAPI):
     logger.info("🚀 Starting application")
-    from main_aiogramm_bot import start_telegram
+    from main_bot_iaogram.main_aiogramm_bot import start_telegram
     await start_telegram()
     yield
     logger.info("⛔ Stopping application")
