@@ -1,29 +1,31 @@
+import logging
 from os import getenv
 from pprint import pprint
 
 from dotenv import load_dotenv
-import logging
 
-load_dotenv('../.venv/.env')
+load_dotenv('.env_sending')
 
-from aiogram import types, F, Router, Bot
-from aiogram.types import Message
-from aiogram.filters import Command
+from aiogram import Bot, F, Router, types
 from aiogram.enums.parse_mode import ParseMode
+from aiogram.filters import Command
+from aiogram.types import Message
+
 # from aiogram.fsm.context import FSMContext
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
-
+main_aiogram_router = Router()
 from fsm import UserState
 from keyBoards import mainMenu
-from proxy_telethron.handlers_telethon import send_msg_to_coze_bot_via_tg
+from main import bot
+
 # from local_cache import memory_dict
 
 
 # TODO: Вот этот запрос бы прикрутить к готовеньким bot, Dispatcher
+
+
 async def send_response_from_bot_to_user(user_chat_id, message_text, reply_to_msg_id):
     # print("send_response_from_bot_to_user")
-    bot = Bot(token=env_main_tg_bot_token,
-              parse_mode=ParseMode.HTML)
     # dp = Dispatcher(storage=MemoryStorage())
 
     await bot.send_message(chat_id=user_chat_id,
@@ -37,7 +39,7 @@ async def send_response_from_bot_to_user(user_chat_id, message_text, reply_to_ms
 
 #________________ Стандартные ручки aiogram
 
-main_aiogram_router = Router()
+
 @main_aiogram_router.message(Command("start"))
 async def start_handler(message: Message, state: UserState):
     logging.info("☄️ i see start command")
@@ -77,14 +79,8 @@ async def send_random_value(callback: types.CallbackQuery):
 
 @main_aiogram_router.message()
 async def message_handler(message: Message):
-    # pprint(message)
+    pprint(message)
     if message.from_user.id != 6927113111:
-
-
-
-        pass
-    # Пока основная точка входа в бота, потом надо поменять
-    #     await send_msg_to_coze_bot_via_tg(message=message.text,
-    #                                       user_chat_id=message.chat.id,
-    #                                       user_message_id=message.message_id)
-    pass
+        await send_msg_to_coze_bot_via_tg(message=message.text,
+                                          user_chat_id=message.chat.id,
+                                          user_message_id=message.message_id)
