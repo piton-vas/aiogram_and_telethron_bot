@@ -27,12 +27,12 @@ from proxy_telethron.handlers_telethon import send_msg_to_coze_bot_via_tg
 async def send_response_from_bot_to_user(user_chat_id, message_text):
     print("send_response_from_bot_to_user - Отправка ботом ответа, Но пока pass")
     pass
-    bot = Bot(token=env_main_tg_bot_token,
-              parse_mode=ParseMode.HTML)
-    dp = Dispatcher(storage=MemoryStorage())
-
-    await bot.send_message(chat_id=user_chat_id,
-                           text=message_text)
+    # bot = Bot(token=env_main_tg_bot_token,
+    #           parse_mode=ParseMode.HTML)
+    # dp = Dispatcher(storage=MemoryStorage())
+    #
+    # await bot.send_message(chat_id=user_chat_id,
+    #                        text=message_text)
 
     # await bot.close()
 
