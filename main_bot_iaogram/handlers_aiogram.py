@@ -56,9 +56,6 @@ async def go_handler(message: Message):
                                       user_message_id=message.message_id)
 
 
-@router.message(Command("neuroZakupki_bot", prefix="@"))
-async def cmd_custom1(message: Message):
-    await message.reply("Вижу команду!")
 
 
 @router.callback_query(F.data == "try_free")
@@ -69,12 +66,3 @@ async def send_random_value(callback: types.CallbackQuery):
 
 
 
-
-@router.message()
-async def message_handler(message: Message):
-
-    if message.from_user.id != 6927113111:
-        logging.info(f"message_handler. We have new message from user: {message.text}")
-        # await send_msg_to_coze_bot_via_tg(message=message.text,
-        #                                   user_chat_id=message.chat.id,
-        #                                   user_message_id=message.message_id)
