@@ -42,8 +42,7 @@ async def start_go_test_handler(event):
         pass
 
 
-@events.register(events.NewMessage(from_users=env_coze_bot_id,
-                                   chats=env_chat_for_exchenge_with_coze_bot))
+@events.register(events.NewMessage())   #from_users=env_coze_bot_id, chats=env_chat_for_exchenge_with_coze_bot
 async def i_see_response_handler(event):
 
     message_to_dict = event.message.to_dict()
