@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
-      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/try_telethron.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/new_try_main.py" beforeDir="false" />
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -463,7 +455,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708430427504</updated>
     </task>
-    <option name="localTasksCounter" value="39" />
+    <task id="LOCAL-00039" summary="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
+      <option name="closed" value="true" />
+      <created>1708683739788</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708683739788</updated>
+    </task>
+    <option name="localTasksCounter" value="40" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -494,7 +494,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
     <MESSAGE value="Получаем статус юзера" />
     <MESSAGE value="funktion make_one_month_subscribe" />
     <MESSAGE value="funktion can_user_make_openAI_request" />
@@ -519,7 +518,8 @@
     <MESSAGE value="В этой ветке сделал как везде env_" />
     <MESSAGE value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
     <MESSAGE value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
-    <option name="LAST_COMMIT_MESSAGE" value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
+    <MESSAGE value="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не" />
+    <option name="LAST_COMMIT_MESSAGE" value="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
