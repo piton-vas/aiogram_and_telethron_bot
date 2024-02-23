@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
+      <change afterPath="$PROJECT_DIR$/.idea/.name" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/try_telethron.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_aiogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/handlers/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/handlers/handlers_telethon.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/new_try_main.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,7 +31,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Try_tg_client" />
+        <entry key="$PROJECT_DIR$" value="try_global_vars_for_bots" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -60,17 +66,21 @@
     "Python.config.executor": "Run",
     "Python.database.executor": "Run",
     "Python.database_asyncho.executor": "Run",
+    "Python.dev_fastAPI.executor": "Debug",
     "Python.get_china_answer.executor": "Run",
     "Python.handlers.executor": "Run",
     "Python.keyBoards.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.main_try_multi_app.executor": "Run",
     "Python.neuroThings.executor": "Run",
     "Python.openAI_asist_update.executor": "Run",
+    "Python.routes_FastAPI.executor": "Run",
     "Python.synhro_request.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "try__MySQLStorage__fixing__bag",
-    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "only__two__bots",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   },
   "keyToStringList": {
@@ -81,16 +91,17 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\proxy_telethron" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
   </component>
   <component name="RunManager">
@@ -114,6 +125,21 @@
       <option name="MODULE_MODE" value="false" />
       <option name="REDIRECT_INPUT" value="false" />
       <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="tests" factoryName="Autodetect">
+      <module name="neuroZakupki_bot" />
+      <option name="ENV_FILES" value="" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="_new_additionalArguments" value="&quot;&quot;" />
+      <option name="_new_target" value="&quot;&quot;" />
+      <option name="_new_targetType" value="&quot;PATH&quot;" />
       <method v="2" />
     </configuration>
   </component>
@@ -421,7 +447,23 @@
       <option name="project" value="LOCAL" />
       <updated>1708245951390</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
+      <option name="closed" value="true" />
+      <created>1708329681995</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708329681995</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
+      <option name="closed" value="true" />
+      <created>1708430427504</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708430427504</updated>
+    </task>
+    <option name="localTasksCounter" value="39" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -444,19 +486,7 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State>
-              <option name="FILTERS">
-                <map>
-                  <entry key="branch">
-                    <value>
-                      <list>
-                        <option value="origin/try_MySQLStorage" />
-                      </list>
-                    </value>
-                  </entry>
-                </map>
-              </option>
-            </State>
+            <State />
           </value>
         </entry>
       </map>
@@ -464,8 +494,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Эхо бот по статье Хабра" />
-    <MESSAGE value="Добавил кнопочки" />
     <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
     <MESSAGE value="Получаем статус юзера" />
     <MESSAGE value="funktion make_one_month_subscribe" />
@@ -489,7 +517,9 @@
     <MESSAGE value="db_new_cashe_user_massage_id" />
     <MESSAGE value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
     <MESSAGE value="В этой ветке сделал как везде env_" />
-    <option name="LAST_COMMIT_MESSAGE" value="В этой ветке сделал как везде env_" />
+    <MESSAGE value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
+    <MESSAGE value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
+    <option name="LAST_COMMIT_MESSAGE" value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -498,6 +528,11 @@
           <url>file://$USER_HOME$/AppData/Local/Programs/Python/Python312/Lib/_pydatetime.py</url>
           <line>1839</line>
           <option name="timeStamp" value="1" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
+          <url>file://$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py</url>
+          <line>1</line>
+          <option name="timeStamp" value="4" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
