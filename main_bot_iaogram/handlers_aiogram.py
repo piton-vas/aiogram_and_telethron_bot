@@ -44,7 +44,7 @@ router = Router()
 @router.message(Command("start"))
 async def start_handler(message: Message, state: UserState):
 
-    await message.answer("Привет, путник, это Помошник Нейроконсультант", reply_markup=mainMenu)
+    await message.answer("Привет, путник, сейчас мы будем общаться с другим ботом", reply_markup=mainMenu)
 
 
 @router.message(Command("go"))
