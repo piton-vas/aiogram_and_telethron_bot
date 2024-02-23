@@ -3,7 +3,7 @@ from telethon import TelegramClient
 
 
 from dotenv import load_dotenv
-load_dotenv('.venv/.env')
+load_dotenv('../.venv/.env')
 
 from telethon import events
 env_chat_for_exchenge_with_coze_bot = getenv('env_chat_for_exchenge_with_coze_bot')
