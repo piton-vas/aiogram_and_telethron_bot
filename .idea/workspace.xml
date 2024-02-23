@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -463,7 +464,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708683739788</updated>
     </task>
-    <option name="localTasksCounter" value="40" />
+    <task id="LOCAL-00040" summary="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
+      <option name="closed" value="true" />
+      <created>1708684723304</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708684723304</updated>
+    </task>
+    <option name="localTasksCounter" value="41" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
