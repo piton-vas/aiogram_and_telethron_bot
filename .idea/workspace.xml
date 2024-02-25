@@ -4,14 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="2 bots warking, hendlers telethron working">
-      <change afterPath="$PROJECT_DIR$/loader.py" afterDir="false" />
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Заработали вдвоем, лишние боты не создаются. Ит воркс!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/database_asyncho.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/get_china_answer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/neuroThings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/openAI_asist_update.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/save_example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/try_telethron.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,37 +63,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Python tests.Python tests in test_telethron.py.executor&quot;: &quot;Run&quot;,
-    &quot;Python._test_telethron.executor&quot;: &quot;Run&quot;,
-    &quot;Python.config.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database.executor&quot;: &quot;Run&quot;,
-    &quot;Python.database_asyncho.executor&quot;: &quot;Run&quot;,
-    &quot;Python.dev_fastAPI.executor&quot;: &quot;Debug&quot;,
-    &quot;Python.get_china_answer.executor&quot;: &quot;Run&quot;,
-    &quot;Python.handlers.executor&quot;: &quot;Run&quot;,
-    &quot;Python.keyBoards.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main.executor&quot;: &quot;Run&quot;,
-    &quot;Python.main_try_multi_app.executor&quot;: &quot;Run&quot;,
-    &quot;Python.neuroThings.executor&quot;: &quot;Run&quot;,
-    &quot;Python.openAI_asist_update.executor&quot;: &quot;Run&quot;,
-    &quot;Python.routes_FastAPI.executor&quot;: &quot;Run&quot;,
-    &quot;Python.synhro_request.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;only__two__bots&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/piton/PycharmProjects/neuroZakupki_bot&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Python tests.Python tests in test_telethron.py.executor": "Run",
+    "Python._test_telethron.executor": "Run",
+    "Python.config.executor": "Run",
+    "Python.database.executor": "Run",
+    "Python.database_asyncho.executor": "Run",
+    "Python.dev_fastAPI.executor": "Debug",
+    "Python.get_china_answer.executor": "Run",
+    "Python.handlers.executor": "Run",
+    "Python.keyBoards.executor": "Run",
+    "Python.main.executor": "Run",
+    "Python.main_try_multi_app.executor": "Run",
+    "Python.neuroThings.executor": "Run",
+    "Python.openAI_asist_update.executor": "Run",
+    "Python.routes_FastAPI.executor": "Run",
+    "Python.synhro_request.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "only__two__bots",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/loader.py",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File&quot;: [
-      &quot;Python&quot;
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\" />
@@ -94,11 +102,11 @@
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv\old_session" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\proxy_telethron" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
     </key>
   </component>
   <component name="RunManager">
@@ -485,7 +493,15 @@
       <option name="project" value="LOCAL" />
       <updated>1708711922973</updated>
     </task>
-    <option name="localTasksCounter" value="44" />
+    <task id="LOCAL-00044" summary="Заработали вдвоем, лишние боты не создаются. Ит воркс!">
+      <option name="closed" value="true" />
+      <created>1708878502132</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1708878502132</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -516,7 +532,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="funktion make_one_month_subscribe" />
     <MESSAGE value="funktion can_user_make_openAI_request" />
     <MESSAGE value="funсtion can_user_make_openAI_request" />
     <MESSAGE value="funсtion create_new_tread" />
@@ -541,7 +556,8 @@
     <MESSAGE value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
     <MESSAGE value="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не" />
     <MESSAGE value="2 bots warking, hendlers telethron working" />
-    <option name="LAST_COMMIT_MESSAGE" value="2 bots warking, hendlers telethron working" />
+    <MESSAGE value="Заработали вдвоем, лишние боты не создаются. Ит воркс!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Заработали вдвоем, лишние боты не создаются. Ит воркс!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
