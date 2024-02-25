@@ -36,6 +36,7 @@ if env_server_mode == "PROD":
                                    database=env_db_name)
 elif env_server_mode == "TEST":
     aiogram_storage = MemoryStorage()
+
 dp = Dispatcher(storage=aiogram_storage)
 
 # Создаем клиента telethron, чтобы потом ими пользоваться везде
@@ -43,11 +44,13 @@ client_telethron = TelegramClient(session=env_telethon_session,
                                   api_id=int(env_telethon_api_id),
                                   api_hash=env_telethon_api_hash)
 
+# Асинхронная функция для запуска главного бота
 async def main_aiogram_bot():
     dp.include_router(router)
     await bot.delete_webhook(drop_pending_updates=True)
     await dp.start_polling(bot, allowed_updates=dp.resolve_used_update_types())
 
+# Асинхронная функция для запуска бота Telethron, который будет общаться с другим ботом
 async def main_telethron_bot():
     client_telethron.add_event_handler(i_see_response_handler)
     client_telethron.add_event_handler(i_see_edits_handler)
