@@ -7,18 +7,14 @@ mainMenu = [
 mainMenu = InlineKeyboardMarkup(inline_keyboard=mainMenu)
 
 
-openAIpoll = [
+gpt_response_poll = [
     [   InlineKeyboardButton(text="🔥 Отличный ответ", callback_data="poll_good"),
         InlineKeyboardButton(text="🙅‍♂️ Совсем не то", callback_data="poll_bad"),
-        InlineKeyboardButton(text="📝 Дать обратную связь", callback_data="give_feedback")
-        # InlineKeyboardButton(text="⛔️ Астанавитесь", callback_data="stop") Включить когда будет поэтапный вывод
+        InlineKeyboardButton(text="📝 Дать обратную связь", callback_data="give_feedback"),
+        InlineKeyboardButton(text="⛔️ Астанавитесь", callback_data="stop")
      ],
 ]
-openAIpoll = InlineKeyboardMarkup(inline_keyboard=openAIpoll)
+gpt_response_poll = InlineKeyboardMarkup(inline_keyboard=gpt_response_poll)
 
 
-profile_menu = [
-    [InlineKeyboardButton(text="Ввести промо-код", callback_data="enter_promo"),
-    InlineKeyboardButton(text="Оформить подписку", callback_data="subscribe")],
-]
-profile_menu = InlineKeyboardMarkup(inline_keyboard=profile_menu)
+

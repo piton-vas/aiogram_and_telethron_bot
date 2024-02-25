@@ -11,24 +11,24 @@ from keyBoards import mainMenu
 from local_cache import memory_check_cache_replay_message_id, memory_dict_update_replay_message_id
 from proxy_telethron.handlers_telethon import send_msg_to_3th_party_bot_via_tg
 
-
 load_dotenv('.venv/.env')
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
-env_chat_for_exchenge_with_coze_bot_id = getenv('env_chat_for_exchenge_with_coze_bot_id')
 
+# Произошло внешнее событие (Telethron увидел сообщение от стороннего бота) Можно переслать нашему юзеру
 async def send_response_from_bot_to_user(reply_to_msg_id, message_text):
     print("send_response_from_bot_to_user reply_to_msg_id: " + str(reply_to_msg_id))
     cache_dict = memory_check_cache_replay_message_id(reply_to_msg_id)
-
     replay_massage_id = cache_dict["user_message_id"]
-    bot_replay_message = await ld.bot.send_message(chat_id=cache_dict["user_chat_id"],
+    user_chat_id = cache_dict["user_chat_id"]
+    bot_replay_message = await ld.bot.send_message(chat_id=user_chat_id,
                                                    text=message_text,
-                                                   reply_to_message_id=replay_massage_id)
+                                                   reply_to_message_id=replay_massage_id,
+                                                   reply_markup=mainMenu)
     replay_bot_message_id = bot_replay_message.message_id
     memory_dict_update_replay_message_id(proxy_message_id=reply_to_msg_id,
                                          replay_bot_message_id=replay_bot_message_id)
 
-
+# Произошло внешнее событие (Telethron увидел изменения сообщения от стороннего бота) Можно переслать изменения нашему юзеру
 async def edit_response_from_bot_to_user(replay_massage_id, message_text):
     cache_dict = memory_check_cache_replay_message_id(replay_massage_id)
     print(replay_massage_id)
@@ -40,16 +40,15 @@ async def edit_response_from_bot_to_user(replay_massage_id, message_text):
                                        message_id=replay_bot_message_id,
                                        text=message_text)
 
-
-
-
+# Стандартные ручки аиограмм бота
 router = Router()
+
+# Обычная команда старт
 @router.message(Command("start"))
 async def start_handler(message: Message, state: UserState):
-
     await message.answer("Привет, путник, сейчас мы будем общаться с другим ботом", reply_markup=mainMenu)
 
-
+# Временная ручка Го, для теста (работает и в личке и в групповом чате)
 @router.message(Command("go"))
 async def go_handler(message: Message):
     message_text = message.text[3:]    # Убираем команду /go
@@ -59,9 +58,8 @@ async def go_handler(message: Message):
                                            user_message_id=message.message_id)
 
 
-
-
+# Еще одна ручка на всякий случай
 @router.callback_query(F.data == "try_free")
 async def send_random_value(callback: types.CallbackQuery):
-    await callback.message.answer("Спроси меня что-нибудь про законы о закупках")
+    await callback.message.answer("Спроси меня что-нибудь")
     await callback.answer()
