@@ -7,7 +7,7 @@ from aiogram.types import Message
 import loader as ld
 
 from fsm import UserState
-from keyBoards import mainMenu
+from keyBoards import mainMenu, gpt_response_poll
 from local_cache import memory_check_cache_replay_message_id, memory_dict_update_replay_message_id
 from proxy_telethron.handlers_telethon import send_msg_to_3th_party_bot_via_tg
 
@@ -16,14 +16,13 @@ env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 
 # Произошло внешнее событие (Telethron увидел сообщение от стороннего бота) Можно переслать нашему юзеру
 async def send_response_from_bot_to_user(reply_to_msg_id, message_text):
-    print("send_response_from_bot_to_user reply_to_msg_id: " + str(reply_to_msg_id))
     cache_dict = memory_check_cache_replay_message_id(reply_to_msg_id)
     replay_massage_id = cache_dict["user_message_id"]
     user_chat_id = cache_dict["user_chat_id"]
     bot_replay_message = await ld.bot.send_message(chat_id=user_chat_id,
                                                    text=message_text,
                                                    reply_to_message_id=replay_massage_id,
-                                                   reply_markup=mainMenu)
+                                                   reply_markup=gpt_response_poll)
     replay_bot_message_id = bot_replay_message.message_id
     memory_dict_update_replay_message_id(proxy_message_id=reply_to_msg_id,
                                          replay_bot_message_id=replay_bot_message_id)
@@ -31,14 +30,13 @@ async def send_response_from_bot_to_user(reply_to_msg_id, message_text):
 # Произошло внешнее событие (Telethron увидел изменения сообщения от стороннего бота) Можно переслать изменения нашему юзеру
 async def edit_response_from_bot_to_user(replay_massage_id, message_text):
     cache_dict = memory_check_cache_replay_message_id(replay_massage_id)
-    print(replay_massage_id)
-    print(cache_dict)
     user_chat_id = cache_dict["user_chat_id"]
     replay_bot_message_id = cache_dict["replay_bot_message_id"]
     if replay_bot_message_id:
         await ld.bot.edit_message_text(chat_id=user_chat_id,
                                        message_id=replay_bot_message_id,
-                                       text=message_text)
+                                       text=message_text,
+                                       reply_markup=gpt_response_poll)
 
 # Стандартные ручки аиограмм бота
 router = Router()
