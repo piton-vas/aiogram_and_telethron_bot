@@ -2,16 +2,16 @@ import logging
 from os import getenv
 from pprint import pprint
 
+from dotenv import load_dotenv
 from telethon import TelegramClient
 
-
-from dotenv import load_dotenv
-
+import loader as ld
 
 load_dotenv('.venv/.env')
 
 from telethon import events
-env_chat_for_exchenge_with_coze_bot = getenv('env_chat_for_exchenge_with_coze_bot')
+
+env_chat_for_exchenge_with_coze_bot = -1002023371936
 env_telethon_api_id = getenv('env_telethon_api_id')
 env_telethon_api_hash = getenv('env_telethon_api_hash')
 env_telethon_session = getenv('env_telethon_session')
@@ -24,14 +24,11 @@ env_coze_bot_id_id = int(getenv('env_coze_bot_id_id'))
 # TODO:Вот этот запрос бы прикрутить к готовеньким TelegramClient
 async def send_msg_to_coze_bot_via_tg(message, user_chat_id, user_message_id):
     logging.info(f"Отправляем сообщение в Telethron. send_msg_to_coze_bot_via_tg{message}")
-    client_telethron = TelegramClient(session=env_telethon_session,
-                                      api_id=int(env_telethon_api_id),
-                                      api_hash=env_telethon_api_hash)
-    await client_telethron.start()
+    await ld.client_telethron.start()
     message = "@" + env_coze_bot_id + " " + message
-    await client_telethron.send_message(entity=env_chat_for_exchenge_with_coze_bot,
+    await ld.client_telethron.send_message(entity=env_chat_for_exchenge_with_coze_bot,
                                         message=message)
-    await client_telethron.disconnect()
+
 
 
 # ________________ Стандартные Ручки тг клиента
@@ -56,26 +53,14 @@ async def i_see_response_handler(event):
     if user_id == env_coze_bot_id_id:
 
         print("i_see_response_handler: " + message_to_dict["message"])
-        from main_bot_iaogram.handlers_aiogram import send_response_from_bot_to_user
+        from main_bot_iaogram.handlers_aiogram import \
+            send_response_from_bot_to_user
 
         await send_response_from_bot_to_user(user_chat_id=env_chat_for_exchenge_with_coze_bot,
                                              message_text=message_to_dict["message"])
-
-
-
-
 
 
 @events.register(events.MessageEdited())
 async def i_see_edits_handler(event):                     #     TODO: Добавить send_edits_from_bot_to_user или типа того
     arr = event.message.to_dict()
     print("i_see_edits_handler: " + arr["message"])
-
-    pass
-
-
-
-
-
-
-

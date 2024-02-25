@@ -1,18 +1,16 @@
 import logging
 from os import getenv
 from pprint import pprint
-from aiogram import Bot, Dispatcher
-from aiogram.enums.parse_mode import ParseMode
-from aiogram.fsm.storage.memory import MemoryStorage
 
 from dotenv import load_dotenv
+
 load_dotenv('.venv/.env')
-
-from aiogram import types, F, Router
-from aiogram.types import Message
+from aiogram import F, Router, types
 from aiogram.filters import Command
+from aiogram.types import Message
 
-# from aiogram.fsm.context import FSMContext
+import loader as ld
+
 env_main_tg_bot_token = getenv('env_main_tg_bot_token')
 env_chat_for_exchenge_with_coze_bot_id = getenv('env_chat_for_exchenge_with_coze_bot_id')
 
@@ -20,21 +18,13 @@ env_chat_for_exchenge_with_coze_bot_id = getenv('env_chat_for_exchenge_with_coze
 from fsm import UserState
 from keyBoards import mainMenu
 from proxy_telethron.handlers_telethon import send_msg_to_coze_bot_via_tg
-# from local_cache import memory_dict
+
 
 
 # TODO: Вот этот запрос бы прикрутить к готовеньким bot, Dispatcher
 async def send_response_from_bot_to_user(user_chat_id, message_text):
-    print("send_response_from_bot_to_user - Отправка ботом ответа, Но пока pass")
-    pass
-    # bot = Bot(token=env_main_tg_bot_token,
-    #           parse_mode=ParseMode.HTML)
-    # dp = Dispatcher(storage=MemoryStorage())
-    #
-    # await bot.send_message(chat_id=user_chat_id,
-    #                        text=message_text)
-
-    # await bot.close()
+    await ld.bot.send_message(chat_id=user_chat_id,
+                           text=message_text)
 
 #________________ Стандартные ручки aiogram
 
@@ -62,7 +52,3 @@ async def go_handler(message: Message):
 async def send_random_value(callback: types.CallbackQuery):
     await callback.message.answer("Спроси меня что-нибудь про законы о закупках")
     await callback.answer()
-
-
-
-
