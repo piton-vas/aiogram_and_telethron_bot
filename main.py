@@ -1,7 +1,7 @@
 import asyncio
 import logging
-
 from os import getenv
+
 from dotenv import load_dotenv
 
 from main_bot_iaogram.starting_inst_iaogram import main_aiogram_bot
