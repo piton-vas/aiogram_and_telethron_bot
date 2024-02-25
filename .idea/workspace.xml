@@ -4,12 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Перенес конфиги в .venv/.env">
+    <list default="true" id="a46dc543-7192-4d7e-988b-9fdb800f973a" name="Changes" comment="Заработали вдвоем, лишние боты не создаются. Ит воркс!">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/database.py" beforeDir="false" afterPath="$PROJECT_DIR$/database.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/get_china_answer.py" beforeDir="false" afterPath="$PROJECT_DIR$/get_china_answer.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/loader.py" beforeDir="false" afterPath="$PROJECT_DIR$/loader.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/local_cache.py" beforeDir="false" afterPath="$PROJECT_DIR$/local_cache.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/neuroThings.py" beforeDir="false" afterPath="$PROJECT_DIR$/neuroThings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" beforeDir="false" afterPath="$PROJECT_DIR$/main_bot_iaogram/handlers_aiogram.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main_bot_iaogram/starting_inst_iaogram.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" beforeDir="false" afterPath="$PROJECT_DIR$/proxy_telethron/handlers_telethon.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/proxy_telethron/starting_inst_telethron.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/database_asyncho.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/get_china_answer.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/misc.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/neuroThings.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/openAI_asist_update.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/save_example.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/unUsed_files/try_telethron.py" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +36,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="try_MySQLStorage" />
+        <entry key="$PROJECT_DIR$" value="try_global_vars_for_bots" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -61,32 +71,42 @@
     "Python.config.executor": "Run",
     "Python.database.executor": "Run",
     "Python.database_asyncho.executor": "Run",
+    "Python.dev_fastAPI.executor": "Debug",
     "Python.get_china_answer.executor": "Run",
     "Python.handlers.executor": "Run",
     "Python.keyBoards.executor": "Run",
     "Python.main.executor": "Run",
+    "Python.main_try_multi_app.executor": "Run",
     "Python.neuroThings.executor": "Run",
     "Python.openAI_asist_update.executor": "Run",
+    "Python.routes_FastAPI.executor": "Run",
     "Python.synhro_request.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
-    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/handlers/handlers_aiogram.py",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "only__two__bots",
+    "last_opened_file_path": "C:/Users/piton/PycharmProjects/neuroZakupki_bot/loader.py",
     "settings.editor.selected.configurable": "preferences.pluginManager"
+  },
+  "keyToStringList": {
+    "com.intellij.ide.scratch.ScratchImplUtil$2/New Scratch File": [
+      "Python"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\handlers" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv\old_session" />
       <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\.venv" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot" />
-      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\env" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\unUsed_files" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\proxy_telethron" />
+      <recent name="C:\Users\piton\PycharmProjects\neuroZakupki_bot\main_bot_iaogram" />
     </key>
   </component>
   <component name="RunManager">
@@ -116,7 +136,7 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-python-sdk-67fca87a943a-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.11799.259" />
+        <option value="bundled-python-sdk-5a2391486177-d3b881c8e49f-com.jetbrains.pycharm.community.sharedIndexes.bundled-PC-233.13763.11" />
       </set>
     </attachedChunks>
   </component>
@@ -401,7 +421,87 @@
       <option name="project" value="LOCAL" />
       <updated>1708172617312</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="В этой ветке сделал как везде env_">
+      <option name="closed" value="true" />
+      <created>1708245719547</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1708245719547</updated>
+    </task>
+    <task id="LOCAL-00036" summary="В этой ветке сделал как везде env_">
+      <option name="closed" value="true" />
+      <created>1708245951390</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1708245951390</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи">
+      <option name="closed" value="true" />
+      <created>1708329681995</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1708329681995</updated>
+    </task>
+    <task id="LOCAL-00038" summary="Запускается 2 приложения, хз правильно ли, сча буду рефакторить">
+      <option name="closed" value="true" />
+      <created>1708430427504</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1708430427504</updated>
+    </task>
+    <task id="LOCAL-00039" summary="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
+      <option name="closed" value="true" />
+      <created>1708683739788</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1708683739788</updated>
+    </task>
+    <task id="LOCAL-00040" summary="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не">
+      <option name="closed" value="true" />
+      <created>1708684723304</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1708684723304</updated>
+    </task>
+    <task id="LOCAL-00041" summary="2 bots warking, hendlers telethron working">
+      <option name="closed" value="true" />
+      <created>1708707646782</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1708707646782</updated>
+    </task>
+    <task id="LOCAL-00042" summary="2 bots warking, hendlers telethron working">
+      <option name="closed" value="true" />
+      <created>1708708116184</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1708708116184</updated>
+    </task>
+    <task id="LOCAL-00043" summary="2 bots warking, hendlers telethron working">
+      <option name="closed" value="true" />
+      <created>1708711922973</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1708711922973</updated>
+    </task>
+    <task id="LOCAL-00044" summary="Заработали вдвоем, лишние боты не создаются. Ит воркс!">
+      <option name="closed" value="true" />
+      <created>1708878502132</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1708878502132</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -432,12 +532,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
-    <MESSAGE value="Работающий пример Эхо бота" />
-    <MESSAGE value="Эхо бот по статье Хабра" />
-    <MESSAGE value="Добавил кнопочки" />
-    <MESSAGE value="Подключил ДБ &#10;Создание пользователя" />
-    <MESSAGE value="Получаем статус юзера" />
-    <MESSAGE value="funktion make_one_month_subscribe" />
     <MESSAGE value="funktion can_user_make_openAI_request" />
     <MESSAGE value="funсtion can_user_make_openAI_request" />
     <MESSAGE value="funсtion create_new_tread" />
@@ -457,7 +551,13 @@
     <MESSAGE value="db_add_to_cashe_user_massage_id" />
     <MESSAGE value="db_new_cashe_user_massage_id" />
     <MESSAGE value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
-    <option name="LAST_COMMIT_MESSAGE" value="Бот отвечает, но пока не редактирует&#10;Отрефакторил по разным файлам ручки" />
+    <MESSAGE value="В этой ветке сделал как везде env_" />
+    <MESSAGE value="Основной бот работает без ошибок, второго включил, вроде работает. Лишние запросы пока закомментил. СОхраняюсь перед ФастАпи" />
+    <MESSAGE value="Запускается 2 приложения, хз правильно ли, сча буду рефакторить" />
+    <MESSAGE value="Вроде из этого положения запускались обе ручки i_see_edits_handler, i_see_response_handler но сча не" />
+    <MESSAGE value="2 bots warking, hendlers telethron working" />
+    <MESSAGE value="Заработали вдвоем, лишние боты не создаются. Ит воркс!" />
+    <option name="LAST_COMMIT_MESSAGE" value="Заработали вдвоем, лишние боты не создаются. Ит воркс!" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
